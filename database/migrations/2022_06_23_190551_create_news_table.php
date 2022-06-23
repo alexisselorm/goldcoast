@@ -15,7 +15,15 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
+            // When an author is deleted, delete all his associated news posts
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string('slug');
+            $table->string('title');
+            $table->string('excerpt');
+            $table->string('body');
+            $table->string('thumbnail')->nullable();
             $table->timestamps();
+            $table->timestamp('published_at')->nullable();
         });
     }
 

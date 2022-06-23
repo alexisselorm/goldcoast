@@ -2,14 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\News;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Comment>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Staff>
  */
-class CommentFactory extends Factory
+class StaffFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -20,9 +18,6 @@ class CommentFactory extends Factory
     {
         return [
             //
-            'news_id'=> News::factory(),
-            'user_id' => User::factory(),
-            'body' => $this->faker->paragraph()
         ];
     }
 }

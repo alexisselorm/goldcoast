@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('staff', function (Blueprint $table) {
             $table->id();
-            // When a news post is deleted, deleted all associated comments.
-            $table->foreignId('news_id')->constrained()->cascadeOnDelete();
-            $table->unsignedBigInteger('user_id');
-            $table->text('body');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('staff');
     }
 };

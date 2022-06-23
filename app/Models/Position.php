@@ -9,7 +9,14 @@ class Position extends Model
 {
     use HasFactory;
 
-    public function players(){
+    public $guarded = ['id'];
+
+    public function players()
+    {
         return $this->hasMany(Player::class);
+    }
+    public function staff()
+    {
+        return $this->hasMany(Staff::class);
     }
 }

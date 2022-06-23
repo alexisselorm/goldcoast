@@ -2,8 +2,12 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Comment;
+use App\Models\News;
+use App\Models\User;
+use App\Models\Player;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,5 +24,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        User::factory(10)->create();
+        News::factory(10)->create();
+        Player::factory(20)->create();
+        Comment::factory(10)->create();
+
+
     }
 }

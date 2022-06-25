@@ -1,0 +1,1 @@
+If you come here, it means you want to create some news. Hurray

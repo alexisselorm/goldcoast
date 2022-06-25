@@ -19,7 +19,7 @@ class PlayerController extends Controller
 public function all()
 {
 //  Used in laravel
-    return view('players',
+    return view('players.players',
         ['positions' => Position::with(['players'])->get(),
         ]
     );
@@ -32,7 +32,7 @@ public function all()
 
 public function show(Player $player)
 {
-    return view('player', [
+    return view('players.player', [
         'player' => $player,
     ]);
 

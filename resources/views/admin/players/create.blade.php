@@ -1,0 +1,1 @@
+Yayyyy. we bought a new player and we're adding him to our database

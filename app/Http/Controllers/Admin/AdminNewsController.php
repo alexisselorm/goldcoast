@@ -14,7 +14,8 @@ class AdminNewsController extends Controller
     public function create()
     {
         if (auth()->guest()) {
-            redirect('/home');
+            // redirect('/home');
+            abort(403);
         }
         return view('admin.news.create');
     }

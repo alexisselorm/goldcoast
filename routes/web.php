@@ -43,7 +43,7 @@ Route::post('news/{single_news:slug}/comments', [CommentController::class, 'stor
 Route::prefix('admin')->group(function () {
 
     //NEWS
-// Route::resource('admin/news', AdminNewsController::class)->except('show');
+// Route::resource('news', AdminNewsController::class)->except('show');
     Route::get('news', [AdminNewsController::class, 'index'])->name('admin.news');
     Route::get('news/{single_news}/edit', [AdminNewsController::class, 'edit']);
     Route::patch('news/{single_news}', [AdminNewsController::class, 'update']);

@@ -11,11 +11,13 @@ class Comment extends Model
 
     protected $guarded = [];
 
-    public function author(){
-        return $this->belongsTo(User::class,'user_id');
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function news(){
+    public function news()
+    {
         return $this->belongsTo(News::class);
     }
 }

@@ -9,9 +9,8 @@ class Staff extends Model
 {
     use HasFactory;
 
-    public function position(){
+    public function position()
+    {
         return $this->belongsTo(Position::class);
     }
-
-    
 }

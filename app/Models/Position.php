@@ -15,6 +15,7 @@ class Position extends Model
     {
         return $this->hasMany(Player::class);
     }
+
     public function staff()
     {
         return $this->hasMany(Staff::class);

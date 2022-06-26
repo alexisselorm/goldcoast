@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\News;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -17,12 +16,12 @@ class AdminNewsController extends Controller
             // redirect('/home');
             abort(403);
         }
+
         return view('admin.news.create');
     }
 
     public function store()
     {
-
         $attributes = request()->validate([
             'title' => 'required',
             'thumbnail' => 'required|image',
@@ -35,8 +34,10 @@ class AdminNewsController extends Controller
         $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
 
         News::create($attributes);
-        return redirect('authors/' . auth()->user()->username)->with('success', 'Post created');
+
+        return redirect('authors/'.auth()->user()->username)->with('success', 'Post created');
     }
+
     public function index()
     {
         return view('admin.news.index', [
@@ -46,12 +47,11 @@ class AdminNewsController extends Controller
 
     public function edit(News $single_news)
     {
-
         return view('admin.news.edit', [
             'single_news' => $single_news,
         ]);
-
     }
+
     public function update(News $single_news)
     {
         $attributes = request()->validate([
@@ -70,11 +70,11 @@ class AdminNewsController extends Controller
 
         return back();
     }
+
     public function destroy(News $single_news)
     {
         $single_news->delete();
 
         return back();
     }
-
 }

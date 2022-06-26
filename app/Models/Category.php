@@ -9,10 +9,10 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $guarded=['id'];
+    protected $guarded = ['id'];
 
-    public function news(){
+    public function news()
+    {
         return $this->hasMany(News::class);
     }
-
 }

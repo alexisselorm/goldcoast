@@ -2,29 +2,30 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use App\Models\Staff;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class AdminStaffController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         return view('admin.staff.index');
     }
+
     public function create()
     {
         if (auth()->guest()) {
             redirect('/home');
         }
+
         return view('admin.staff.create');
     }
 
     public function store()
     {
-
         $attributes = request()->validate([
             'title' => 'required',
             'thumbnail' => 'required|image',
@@ -37,17 +38,17 @@ class AdminStaffController extends Controller
         $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
 
         Staff::create($attributes);
-        return redirect('authors/' . auth()->user()->username)->with('success', 'Post created');
+
+        return redirect('authors/'.auth()->user()->username)->with('success', 'Post created');
     }
 
     public function edit(Staff $single_staff)
     {
-
         return view('admin.Staff.edit', [
             'single_staff' => $single_staff,
         ]);
-
     }
+
     public function update(Staff $single_staff)
     {
         $attributes = request()->validate([
@@ -66,6 +67,7 @@ class AdminStaffController extends Controller
 
         return back();
     }
+
     public function destroy(Staff $single_staff)
     {
         $single_staff->delete();

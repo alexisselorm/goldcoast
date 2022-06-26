@@ -4,10 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\Comment;
 use App\Models\News;
-use App\Models\User;
 use App\Models\Player;
+use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -29,7 +28,5 @@ class DatabaseSeeder extends Seeder
         News::factory(10)->create();
         Player::factory(20)->create();
         Comment::factory(10)->create();
-
-
     }
 }

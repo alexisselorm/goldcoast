@@ -11,8 +11,8 @@ class Player extends Model
 
     protected $guarded = ['id'];
 
-    public function position(){
+    public function position()
+    {
         return $this->belongsTo(Position::class);
     }
 }
-

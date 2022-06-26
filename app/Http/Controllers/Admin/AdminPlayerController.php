@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use App\Models\Player;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class AdminPlayerController extends Controller
 {
@@ -20,12 +20,12 @@ class AdminPlayerController extends Controller
         if (auth()->guest()) {
             redirect('/home');
         }
+
         return view('admin.players.create');
     }
 
     public function store()
     {
-
         $attributes = request()->validate([
             'title' => 'required',
             'thumbnail' => 'required|image',
@@ -38,17 +38,17 @@ class AdminPlayerController extends Controller
         $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
 
         Player::create($attributes);
-        return redirect('authors/' . auth()->user()->username)->with('success', 'Post created');
+
+        return redirect('authors/'.auth()->user()->username)->with('success', 'Post created');
     }
 
     public function edit(Player $player)
     {
-
         return view('admin.Player.edit', [
             'player' => $player,
         ]);
-
     }
+
     public function update(Player $player)
     {
         $attributes = request()->validate([
@@ -67,6 +67,7 @@ class AdminPlayerController extends Controller
 
         return back();
     }
+
     public function destroy(Player $player)
     {
         $player->delete();

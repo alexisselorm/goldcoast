@@ -1,12 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminNewsController;
+use App\Http\Controllers\Admin\AdminPlayerController;
+use App\Http\Controllers\Admin\AdminStaffController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PlayerController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\Admin\AdminNewsController;
-use App\Http\Controllers\Admin\AdminStaffController;
-use App\Http\Controllers\Admin\AdminPlayerController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
 
 // Players
 Route::get('/players', [PlayerController::class, 'all']);
@@ -43,7 +43,7 @@ Route::post('news/{single_news:slug}/comments', [CommentController::class, 'stor
 Route::prefix('admin')->group(function () {
 
     //NEWS
-// Route::resource('news', AdminNewsController::class)->except('show');
+    // Route::resource('news', AdminNewsController::class)->except('show');
     Route::get('news', [AdminNewsController::class, 'index'])->name('admin.news');
     Route::get('news/{single_news}/edit', [AdminNewsController::class, 'edit']);
     Route::patch('news/{single_news}', [AdminNewsController::class, 'update']);
@@ -66,7 +66,6 @@ Route::prefix('admin')->group(function () {
     Route::delete('staff/{single_staff}', [AdminStaffController::class, 'destroy']);
     Route::get('staff/create', [AdminStaffController::class, 'create']);
     Route::post('staff', [AdminStaffController::class, 'store']);
-
 });
 
 // Players

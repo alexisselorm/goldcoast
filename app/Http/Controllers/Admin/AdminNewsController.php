@@ -2,13 +2,33 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\RequestHelper;
 use App\Http\Controllers\Controller;
 use App\Models\News;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
 
 class AdminNewsController extends Controller
 {
+    private $helper;
+
+    public function __construct(RequestHelper $helper)
+    {
+        $this->helper = $helper;
+    }
+
+    // Helper functions
+    public function validations()
+    {
+        return [
+            'title' => 'required',
+            'thumbnail' => 'required|image',
+            'body' => 'required',
+
+        ];
+    }
+
     //
     public function create()
     {
@@ -22,20 +42,26 @@ class AdminNewsController extends Controller
 
     public function store()
     {
-        $attributes = request()->validate([
-            'title' => 'required',
-            'thumbnail' => 'required|image',
-            'slug' => ['required', Rule::unique('news', 'slug')],
-            'excerpt' => 'required',
-            'body' => 'required',
+        $attributes = request()->only([
+            'title',
+            'body',
+            'thumbnail',
         ]);
+
+        $validate = Validator::make($attributes, $this->validations());
+        if ($validate->fails()) {
+            return $this->helper->failResponse($validate->errors()->first());
+        }
+        $image = request()->file('thumbnail')->store('news', 'public');
+
         $attributes['user_id'] = auth()->id();
         $attributes['slug'] = Str::slug($attributes['title']);
-        $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+        $attributes['thumbnail'] = Storage::disk('public')->url($image);
+        // dd($attributes['thumbnail']);
 
         News::create($attributes);
 
-        return redirect('authors/'.auth()->user()->username)->with('success', 'Post created');
+        return redirect('admin/news')->with('success', 'Post created');
     }
 
     public function index()
@@ -57,8 +83,6 @@ class AdminNewsController extends Controller
         $attributes = request()->validate([
             'title' => 'required',
             'thumbnail' => 'image',
-            'slug' => ['required', Rule::unique('news', 'slug')->ignore($single_news->id)],
-            'excerpt' => 'required',
             'body' => 'required',
         ]);
         if (isset($attributes['thumbnail'])) {
@@ -68,7 +92,7 @@ class AdminNewsController extends Controller
 
         $single_news->update($attributes);
 
-        return back();
+        return redirect("/admin/news");
     }
 
     public function destroy(News $single_news)

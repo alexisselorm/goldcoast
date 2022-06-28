@@ -22,7 +22,7 @@ return new class extends Migration
             $table->unsignedSmallInteger('weight');
             $table->unsignedSmallInteger('height');
             $table->string('country');
-            $table->tinyInteger('player_number');
+            $table->tinyInteger('player_number')->unique();
             $table->foreignId('position_id');
             $table->date('joining_date');
             $table->date('dob');

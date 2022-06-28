@@ -9,7 +9,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    So this is where I'm gonna be showing the news for the admins
+                    @foreach ($news as $single_news)
+                    <p>{{ $single_news->title }}</p>
+                    @endforeach
                 </div>
             </div>
         </div>

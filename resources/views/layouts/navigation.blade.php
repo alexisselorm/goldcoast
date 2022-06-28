@@ -31,8 +31,6 @@
                         {{ __('Staff') }}
                     </x-nav-link>
                 </div>
-
-
             </div>
 
             <!-- Settings Dropdown -->
@@ -94,6 +92,8 @@
             <x-responsive-nav-link :href="route('admin.players')" :active="request()->routeIs('admin.players')">
                 {{ __('PLayers') }}
             </x-responsive-nav-link>
+
+
         </div>
 
         <!-- Responsive Settings Options -->

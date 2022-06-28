@@ -49,7 +49,7 @@ Route::prefix('admin')->group(function () {
     Route::patch('news/{single_news}', [AdminNewsController::class, 'update']);
     Route::delete('news/{single_news}', [AdminNewsController::class, 'destroy']);
     Route::get('news/create', [AdminNewsController::class, 'create']);
-    Route::post('news', [AdminNewsController::class, 'store']);
+    Route::post('news', [AdminNewsController::class, 'store'])->name('news.store');
 
     // Players
     Route::get('players', [AdminPlayerController::class, 'index'])->name('admin.players');
@@ -57,7 +57,7 @@ Route::prefix('admin')->group(function () {
     Route::patch('players/{player}', [AdminPlayerController::class, 'update']);
     Route::delete('players/{player}', [AdminPlayerController::class, 'destroy']);
     Route::get('players/create', [AdminPlayerController::class, 'create']);
-    Route::post('players', [AdminPlayerController::class, 'store']);
+    Route::post('players', [AdminPlayerController::class, 'store'])->name('player.store');
 
     // Staff
     Route::get('staff', [AdminStaffController::class, 'index'])->name('admin.staff');

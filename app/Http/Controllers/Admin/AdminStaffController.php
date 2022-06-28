@@ -2,13 +2,40 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\RequestHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Staff;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class AdminStaffController extends Controller
 {
+    private $helper;
+
+    public function __construct(RequestHelper $helper)
+    {
+        $this->helper = $helper;
+    }
+
+    // Helper Functions
+    public function validations()
+    {
+        return [
+            'fname' => 'required',
+            'lname' => 'required',
+            'picture' => 'required|image',
+            'weight' => 'required',
+            'height' => 'required',
+            'country' => 'required',
+            'player_number' => 'required',
+            'position_id' => 'required',
+            'joining_date' => 'required',
+            'dob' => 'required',
+        ];
+    }
+
     //
     public function index()
     {
@@ -26,20 +53,29 @@ class AdminStaffController extends Controller
 
     public function store()
     {
-        $attributes = request()->validate([
-            'title' => 'required',
-            'thumbnail' => 'required|image',
-            'slug' => ['required', Rule::unique('news', 'slug')],
-            'excerpt' => 'required',
-            'body' => 'required',
+        $attributes = request()->only([
+            'fname',
+            'lname',
+            'picture',
+            'country',
+            'position_id',
+            'joining_date',
+            'dob',
         ]);
-        $attributes['user_id'] = auth()->id();
-        $attributes['slug'] = Str::slug($attributes['title']);
-        $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+        $validate = Validator::make($attributes, $this->validations());
+        if ($validate->fails()) {
+            return $this->helper->failResponse($validate->errors()->first());
+        }
+
+        // dd($attributes);
+        $image = request()->file('picture')->store('players', 'public');
+
+        $attributes['slug'] = Str::slug($attributes['fname'].' '.$attributes['lname']);
+        $attributes['picture'] = Storage::disk('public')->url($image);
 
         Staff::create($attributes);
 
-        return redirect('authors/'.auth()->user()->username)->with('success', 'Post created');
+        return redirect('admin/players')->with('success', 'Player added');
     }
 
     public function edit(Staff $single_staff)

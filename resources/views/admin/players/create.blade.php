@@ -59,7 +59,7 @@
                             <x-select class="block mt-1 w-full" id="position_id" name="position_id" required autofocus>
                                 @foreach ($positions as $position)
                                     @if ($position->id < 5)
-                                        <option :value="{{ $position->id }}">{{ $position->name }}</option>
+                                        <option value="{{ $position->id }}">{{ $position->name }}</option>
                                     @endif
                                 @endforeach
                             </x-select>

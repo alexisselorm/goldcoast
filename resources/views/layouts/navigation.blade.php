@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-orange-600 border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -15,18 +15,16 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('admin.players')" :active="request()->routeIs('admin.players')">
                         {{ __('Players') }}
                     </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+
+
                     <x-nav-link :href="route('admin.news')" :active="request()->routeIs('admin.news')">
                         {{ __('News') }}
                     </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+
+
                     <x-nav-link :href="route('admin.staff')" :active="request()->routeIs('admin.staff')">
                         {{ __('Staff') }}
                     </x-nav-link>
@@ -89,11 +87,6 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('admin.players')" :active="request()->routeIs('admin.players')">
-                {{ __('PLayers') }}
-            </x-responsive-nav-link>
-
-
         </div>
 
         <!-- Responsive Settings Options -->

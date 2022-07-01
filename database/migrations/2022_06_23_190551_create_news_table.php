@@ -19,8 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('slug');
             $table->string('title');
-            $table->string('excerpt');
-            $table->string('body');
+            $table->text('body');
             $table->string('thumbnail')->nullable();
             $table->timestamps();
             $table->timestamp('published_at')->nullable();

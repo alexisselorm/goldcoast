@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminNewsController;
-use App\Http\Controllers\Admin\AdminPlayerController;
-use App\Http\Controllers\Admin\AdminStaffController;
-use App\Http\Controllers\CommentController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PlayerController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\AdminNewsController;
+use App\Http\Controllers\Admin\AdminStaffController;
+use App\Http\Controllers\Admin\AdminPlayerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +67,9 @@ Route::prefix('admin')->group(function () {
     Route::delete('staff/{single_staff}', [AdminStaffController::class, 'destroy']);
     Route::get('staff/create', [AdminStaffController::class, 'create']);
     Route::post('staff', [AdminStaffController::class, 'store']);
+
+    Route::post('images', [ImageController::class, 'store'])->name('admin.news.image.store');
+
 });
 
 // Players

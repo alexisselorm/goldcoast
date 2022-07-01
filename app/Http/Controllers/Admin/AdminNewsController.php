@@ -42,11 +42,13 @@ class AdminNewsController extends Controller
 
     public function store()
     {
+
         $attributes = request()->only([
             'title',
             'body',
             'thumbnail',
         ]);
+        // dd($attributes);
 
         $validate = Validator::make($attributes, $this->validations());
         if ($validate->fails()) {
@@ -57,7 +59,7 @@ class AdminNewsController extends Controller
         $attributes['user_id'] = auth()->id();
         $attributes['slug'] = Str::slug($attributes['title']);
         $attributes['thumbnail'] = Storage::disk('public')->url($image);
-        // dd($attributes['thumbnail']);
+        // dd($attributes);
 
         News::create($attributes);
 

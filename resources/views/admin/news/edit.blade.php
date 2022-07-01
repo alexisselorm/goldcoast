@@ -22,8 +22,9 @@
                         {{-- Body --}}
                         <div class="mb-4">
                             <x-label for="body" :value="__('body')" />
-                            <x-input id="body" class="block mt-1 w-full" type="text" name="body"
-                                value="{{ $single_news->body }}" required autofocus />
+                            <textarea id="body" class="block mt-1 w-full" type="text" name="body" required required autofocus rows="6">
+                                {{ $single_news->body }}
+                            </textarea>
                         </div>
 
                         {{-- Image --}}
@@ -42,7 +43,13 @@
         </div>
     </div>
     </div>
-
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#body'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 
 
 </x-app-layout>

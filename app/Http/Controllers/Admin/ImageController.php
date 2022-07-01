@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ImageController extends Controller
 {
-    public function store(Request $request, )
+    public function store( )
     {
         $single_news = new News();
         $single_news->id = 0;
@@ -16,7 +16,7 @@ class ImageController extends Controller
         $image = $single_news->addMediaFromRequest('upload')->toMediaCollection('images');
 
         return response()->json([
-            'url' => $image->getUrl(),
+            'url' => $image->getUrl('thumb'),
         ]);
     }
 }

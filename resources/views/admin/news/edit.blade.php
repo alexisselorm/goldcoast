@@ -43,13 +43,7 @@
         </div>
     </div>
     </div>
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#body'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
 
+    <x-ckeditor/>
 
 </x-app-layout>

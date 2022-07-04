@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\News;
-use Illuminate\Http\Request;
 
 class ImageController extends Controller
 {
-    public function store( )
+    public function store()
     {
         $single_news = new News();
         $single_news->id = 0;

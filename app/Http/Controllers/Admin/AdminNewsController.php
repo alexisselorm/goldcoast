@@ -42,7 +42,6 @@ class AdminNewsController extends Controller
 
     public function store()
     {
-
         $attributes = request()->only([
             'title',
             'body',
@@ -94,7 +93,7 @@ class AdminNewsController extends Controller
 
         $single_news->update($attributes);
 
-        return redirect("/admin/news");
+        return redirect('/admin/news');
     }
 
     public function destroy(News $single_news)

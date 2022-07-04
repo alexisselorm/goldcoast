@@ -1,13 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\PlayerController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\AdminNewsController;
-use App\Http\Controllers\Admin\AdminStaffController;
 use App\Http\Controllers\Admin\AdminPlayerController;
+use App\Http\Controllers\Admin\AdminStaffController;
+use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\PlayerController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,8 @@ use App\Http\Controllers\Admin\AdminPlayerController;
 | contains the "web" middleware group. Now create something great!
 |
  */
+
+Route::post('newsletter', [NewsletterController::class, 'subscribe']);
 
 Route::get('/', function () {
     return view('welcome');
@@ -69,7 +72,6 @@ Route::prefix('admin')->group(function () {
     Route::post('staff', [AdminStaffController::class, 'store']);
 
     Route::post('images', [ImageController::class, 'store'])->name('admin.news.image.store');
-
 });
 
 // Players

@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::post('newsletter', [NewsletterController::class, 'subscribe']);
+Route::post('newsletter',NewsletterController::class);
 
 Route::get('/', function () {
     return view('welcome');

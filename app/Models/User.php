@@ -18,13 +18,13 @@ class User extends Authenticatable
      */
     /*
     protected $fillable = [
-            'fname',
-            'mname',
-            'lname',
-            'email',
-            'password',
-        ];
-    */
+    'fname',
+    'mname',
+    'lname',
+    'email',
+    'password',
+    ];
+     */
     protected $fillable = [
         'name',
         'email',
@@ -53,5 +53,14 @@ class User extends Authenticatable
     public function news()
     {
         return $this->hasMany(News::class);
+    }
+
+    /**
+     * @param string $role
+     * @return bool
+     */
+    public function hasRole(string $role): bool
+    {
+        return $this->getAttribute('role') === $role;
     }
 }

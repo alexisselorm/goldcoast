@@ -21,17 +21,23 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::post('newsletter',NewsletterController::class);
+Route::post('newsletter', NewsletterController::class);
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// USER DASHBOARD
+Route::get('/', function () {
+    return view('welcome');
+})->middleware(['auth', 'user'])->name('home');
 
-require __DIR__.'/auth.php';
+// ADMIN DASHBOARD
+Route::get('/admin_dashboard', function () {
+    return view('admin_dashboard');
+})->middleware(['auth', 'admin'])->name('dashboard');
+
+require __DIR__ . '/auth.php';
 
 // Players
 Route::get('/players', [PlayerController::class, 'all']);

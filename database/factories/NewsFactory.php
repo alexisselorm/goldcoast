@@ -18,11 +18,11 @@ class NewsFactory extends Factory
     public function definition()
     {
         return [
-            'user_id'=>User::factory(),
-            'slug'=>$this->faker->sentence(),
-            'title'=>$this->faker->sentence(),
-            'excerpt'=>$this->faker->sentence(),
-            'body'=>$this->faker->paragraph(),
+            'user_id' => User::factory(),
+            'slug' => $this->faker->sentence(),
+            'title' => $this->faker->sentence(),
+            'body' => $this->faker->paragraph(),
+            'thumbnail' =>$this->faker->image(),
         ];
     }
 }

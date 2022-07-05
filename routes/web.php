@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminNewsController;
-use App\Http\Controllers\Admin\AdminPlayerController;
-use App\Http\Controllers\Admin\AdminStaffController;
-use App\Http\Controllers\Admin\ImageController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\PlayerController;
+use App\Models\News;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\AdminNewsController;
+use App\Http\Controllers\Admin\AdminStaffController;
+use App\Http\Controllers\Admin\AdminPlayerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('newsletter',NewsletterController::class);
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',[
+'news'=> News::with('author','category')->latest()->paginate(3)]);
 });
 
 Route::get('/dashboard', function () {

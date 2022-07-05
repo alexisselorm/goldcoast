@@ -37,9 +37,132 @@
     </div>
     @endif
 
+    <header class="h-[140px] relative z-50 block box-border">
+        <div class="h-[140px] bg-orange-600 text-white bg-no-repeat bg-left-top bg-contain fixed z-[999] top-0 w-full "
+            style="background-image:url(https://www.crawleytownfc.com/siteassets/header-an…ooter/efl_watermark_logos_cropped_crawleytown.png)">
+            <div class="pt-[20px] px-0 pb-[22px] mx-auto max-w-[1440px]">
+                <div class="px-[40px]">
+                    <div class="-mx-[20px] flex justify-between items-center">
+                        <div class="h-[90px] flex items-center">
+                            <div class="w-[90px] h-[90px] max-w-full mt-0 mx-auto bg-contain bg-no-repeat bg-center"
+                                style="background-image: url(https://www.crawleytownfc.com/static/css/teams/badges/png/crawleytown.png);">
+                            </div>
+                            <h1 class="m-0 text-[1.34em] tracking-wide font-[800] pl-[20px] leading-[1.125em]">
+                                Crawley Town Football
+                                Club</h1>
+                        </div>
+                        <div>
+                            <a href="#">home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- hero section -->
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <section class="bg-black relative overflow-hidden mb-[40px] -mx-[40px] block">
+            <div class="h-auto pr-[25%] w-full overflow-hidden float-left box-border">
+                <a href="#" class="w-full h-full relative block border-none">
+                    <div class="w-full h-0 pb-[56%] overflow-hidden box-border">
+                        <img class="w-full block relative z-0 max-w-full h-auto"
+                            src="https://www.crawleytownfc.com/contentassets/35de16efbc4a4d83bceb020fd62b20d5/220704_jsb_crawley_spain_1802.jpg/Large">
+                    </div>
+                    <div class="absolute w-full top-0 bottom-0 z-10 box-border"
+                        style="background:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 80%,#000 100%);">
+                    </div>
+                    <div class="absolute w-full bottom-0 text-white p-[40px] z-10">
+                        <div class="detail-block">
+                            <div class="max-w-[1000px] overflow-hidden box-border">
+                                <span class="block text-[0.78em] leading-[1.5em] box-border">Club News</span>
+                                <h2 class="text-[2em] block leading-[1.17em] font-[600] mt-0">COREY ADDAI JOINS BETSY’S
+                                    REDS
+                                </h2>
+                                <span class="mt-[5px] text-[0.67em] leading-[1.67em]">16 Hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="p-0 w-[25%] absolute top-0 right-0 box-border" style="height: 604.797px;">
+                <div class="box-border">
+                    <div class="first">
+                        <a href="#" class="w-full h-full relative block border-none">
+                            <div class="w-full h-0 pb-[56%] overflow-hidden box-border">
+                                <img class="block z-0 relative max-w-full w-full h-auto"
+                                    src="https://www.crawleytownfc.com/contentassets/7d554778ab28481c9fd5bcfdacc3c016/0_southern-cranes_1590a33e.jpeg/Large">
+                            </div>
+                            <div class="absolute w-full top-0 bottom-0 z-10 box-border"
+                                style="background: linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 80%,#000 100%);">
+                            </div>
+                            <div class="absolute w-full bottom-0 text-white p-[20px] z-10">
+                                <div class="max-w-[1000px] overflow-hidden box-border">
+                                    <h2
+                                        class="text-[1em] mb-0 border-b-transparent inline leading-[1.17em] font-[600] box-border">
+                                        SOUTHERN
+                                        CRANES &amp; ACCESS BACK BETSY &amp; THE BOYS FOR
+                                        THE 2022/23
+                                        SEASON!</h2>
+                                    <span class="mt-[5px] block text-[.67em] leading-[1.57em]">23 Hours ago</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="second">
+                        <a href="#" class="w-full h-full relative block border-none">
+                            <div class="w-full h-0 pb-[56%] overflow-hidden box-border">
+                                <img class="block z-0 relative max-w-full w-full h-auto"
+                                    src="https://www.crawleytownfc.com/contentassets/7d554778ab28481c9fd5bcfdacc3c016/0_southern-cranes_1590a33e.jpeg/Large">
+                            </div>
+                            <div class="absolute w-full top-0 bottom-0 z-10 box-border"
+                                style="background: linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 80%,#000 100%);">
+                            </div>
+                            <div class="absolute w-full bottom-0 text-white p-[20px] z-10">
+                                <div class="max-w-[1000px] overflow-hidden box-border">
+                                    <h2
+                                        class="text-[1em] mb-0 border-b-transparent inline leading-[1.17em] font-[600] box-border">
+                                        SOUTHERN
+                                        CRANES &amp; ACCESS BACK BETSY &amp; THE BOYS FOR
+                                        THE 2022/23
+                                        SEASON!</h2>
+                                    <span class="mt-[5px] block text-[.67em] leading-[1.57em]">23 Hours ago</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="third">
+                        <a href="#" class="w-full h-full relative block border-none">
+                            <div class="w-full h-0 pb-[56%] overflow-hidden box-border">
+                                <img class="block z-0 relative max-w-full w-full h-auto"
+                                    src="https://www.crawleytownfc.com/contentassets/7d554778ab28481c9fd5bcfdacc3c016/0_southern-cranes_1590a33e.jpeg/Large">
+                            </div>
+                            <div class="absolute w-full top-0 bottom-0 z-10 box-border"
+                                style="background: linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 80%,#000 100%);">
+                            </div>
+                            <div class="absolute w-full bottom-0 text-white p-[20px] z-10">
+                                <div class="max-w-[1000px] overflow-hidden box-border">
+                                    <h2
+                                        class="text-[1em] mb-0 border-b-transparent inline leading-[1.17em] font-[600] box-border">
+                                        SOUTHERN
+                                        CRANES &amp; ACCESS BACK BETSY &amp; THE BOYS FOR
+                                        THE 2022/23
+                                        SEASON!</h2>
+                                    <span class="mt-[5px] block text-[.67em] leading-[1.57em]">23 Hours ago</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
     <!-- i swaer to god -->
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <section class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-4 gap-4 ">
                 <div class="article-container">
                     <a class="relative block bg-white border-t-orange-600 h-full" href="#">
@@ -60,7 +183,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 
     {{-- Newsletter --}}

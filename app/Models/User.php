@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -55,12 +56,14 @@ class User extends Authenticatable
         return $this->hasMany(News::class);
     }
 
-    /**
-     * @param string $role
-     * @return bool
+    /*
+     * @param  string  $value
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
      */
-    public function hasRole(string $role): bool
+    protected function type(): Attribute
     {
-        return $this->getAttribute('role') === $role;
+        return new Attribute(
+            get: fn ($value) =>  ["user", "admin", "manager"][$value],
+        );
     }
 }

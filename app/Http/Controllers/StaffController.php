@@ -13,7 +13,7 @@ class StaffController extends Controller
     {
         //  Used in laravel
         return view('staff',
-            ['positions' => Position::with(['staff'])->get(),
+            ['positions' => Position::with(['staff'])->where('position','>',4)->get(),
             ]
         );
 

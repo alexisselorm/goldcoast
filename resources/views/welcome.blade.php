@@ -12,20 +12,22 @@
         @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                 @auth
-                    <a href="{{ url('/dashboard') }}"
-                        class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                 @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                    <a href="{{ route('login') }}" class="text-m text-white dark:text-gray-500 ">Log in</a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        <a href="{{ route('register') }}" class="ml-4 text-m text-white dark:text-gray-500">Register</a>
                     @endif
                 @endauth
             </div>
         @endif
 
-        <header class="h-[140px] relative z-50 block box-border">
+        <div class="">
+            @include('layouts.users.navigation')
+        </div>
+
+
+        {{-- <header class="h-[140px] relative z-50 block box-border">
             <div class="h-[140px] bg-orange-600 text-white bg-no-repeat bg-left-top bg-contain fixed z-[999] top-0 w-full "
                 style="background-image:url(https://www.crawleytownfc.com/siteassets/header-an…ooter/efl_watermark_logos_cropped_crawleytown.png)">
                 <div class="pt-[20px] px-0 pb-[22px] mx-auto max-w-[1440px]">
@@ -46,7 +48,7 @@
                     </div>
                 </div>
             </div>
-        </header>
+        </header> --}}
 
         <!-- hero section -->
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -191,68 +193,67 @@
                     {{-- <div class="bg-blue-500 p-4 md:col-span-3">1</div> --}}
                     {{-- Put foreach here --}}
                     <div class="bg-red-500 p-4">
-                       2
+                        2
+                    </div>
+                    {{-- End foreach here --}}
+                    <div class="bg-yellow-500 p-4">3</div>
+                    <div class="bg-green-500 p-4">4</div>
+
+                </div>
+            </div>
+        </div>
+        {{-- Second --}}
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-gray-800">
+            <div class="text-center text-white">
+                <div class="grid gap-2 p-4 md:grid-cols-3">
+                    <div class="bg-blue-500 p-4 md:col-span-3">1</div>
+                    <div class="bg-red-500 p-4">2 </div>
+                    <div class="bg-yellow-500 p-4">3</div>
+                    <div class="bg-green-500 p-4">4</div>
+                    <div class="bg-orange-500 p-4">5</div>
+                    <div class="bg-pink-500 p-4">6</div>
+                    <div class="bg-purple-500 p-4">7</div>
+                    <div class="bg-zinc-500 p-4">8</div>
+                    <div class="bg-sky-400 p-4">9</div>
+                    <div class="bg-lime-400 p-4">9</div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Newsletter --}}
+        <footer class="bg-gray-200 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
+            <img src="./images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;">
+            <h5 class="text-3xl">Stay in touch with the latest posts</h5>
+            <p class="text-sm mt-3">Promise to keep the inbox clean. No bugs.</p>
+
+            <div class="mt-10">
+                <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">
+
+                    <form method="POST" action="newsletter" class="lg:flex text-sm">
+                        @csrf
+                        <div class="lg:py-3 lg:px-5 flex items-center">
+                            <label for="email" class="hidden lg:inline-block">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </label>
+
+                            <input id="email" name="email" type="text" placeholder="Your email address"
+                                class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none">
+                            @error('email')
+                                <span class="text-xs text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
-                        {{-- End foreach here --}}
-                        <div class="bg-yellow-500 p-4">3</div>
-                        <div class="bg-green-500 p-4">4</div>
 
-                    </div>
+                        <button type="submit"
+                            class="transition-colors duration-300 bg-blue-500 hover:bg-blue-600 mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8">
+                            Subscribe
+                        </button>
+                    </form>
                 </div>
             </div>
-            {{-- Second --}}
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-gray-800">
-                <div class="text-center text-white">
-                    <div class="grid gap-2 p-4 md:grid-cols-3">
-                        <div class="bg-blue-500 p-4 md:col-span-3">1</div>
-                        <div class="bg-red-500 p-4">2 </div>
-                        <div class="bg-yellow-500 p-4">3</div>
-                        <div class="bg-green-500 p-4">4</div>
-                        <div class="bg-orange-500 p-4">5</div>
-                        <div class="bg-pink-500 p-4">6</div>
-                        <div class="bg-purple-500 p-4">7</div>
-                        <div class="bg-zinc-500 p-4">8</div>
-                        <div class="bg-sky-400 p-4">9</div>
-                        <div class="bg-lime-400 p-4">9</div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Newsletter --}}
-            <footer class="bg-gray-200 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
-                <img src="./images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6"
-                    style="width: 145px;">
-                <h5 class="text-3xl">Stay in touch with the latest posts</h5>
-                <p class="text-sm mt-3">Promise to keep the inbox clean. No bugs.</p>
-
-                <div class="mt-10">
-                    <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">
-
-                        <form method="POST" action="newsletter" class="lg:flex text-sm">
-                            @csrf
-                            <div class="lg:py-3 lg:px-5 flex items-center">
-                                <label for="email" class="hidden lg:inline-block">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                    </svg>
-                                </label>
-
-                                <input id="email" name="email" type="text" placeholder="Your email address"
-                                    class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none">
-                                @error('email')
-                                    <span class="text-xs text-red-500">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-                            <button type="submit"
-                                class="transition-colors duration-300 bg-blue-500 hover:bg-blue-600 mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8">
-                                Subscribe
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </footer>
+        </footer>
     </body>
 </x-guest-layout>

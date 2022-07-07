@@ -36,11 +36,15 @@ Route::get('/dashboard', function () {
 require __DIR__ . '/auth.php';
 
 // Players
-Route::get('/players', [PlayerController::class, 'all']);
+Route::get('/players', [PlayerController::class, 'all'])->name('players');
 Route::get('players/{player:slug}', [PlayerController::class, 'show']);
 
+// Staff
+Route::get('/staff', [PlayerController::class, 'all'])->name('staff');
+Route::get('staff/{single_staff:slug}', [PlayerController::class, 'show']);
+
 // News and Comments
-Route::get('news', [NewsController::class, 'all']);
+Route::get('news', [NewsController::class, 'all'])->name('news');
 Route::get('news/{single_news:slug}', [NewsController::class, 'single_news']);
 Route::post('news/{single_news:slug}/comments', [CommentController::class, 'store']);
 

@@ -27,7 +27,7 @@
         </div>
 
         {{-- Cards --}}
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-gray-200">
             <div class="text-center text-start">
                 {{-- Heading --}}
                 <div class="text-4xl font-extrabold text-start p-4 md:col-span-4">
@@ -36,16 +36,16 @@
             {{-- Players section --}}
             @foreach ($positions as $position)
                 <div class="grid gap-2 p-4 md:grid-cols-4">
-                    <div class="text-4xl font-extrabold text-start p-4 md:col-span-4">
+                    <div class="space-y-8 text-4xl font-extrabold text-start p-4 md:col-span-4">
                         <hr/>
                         {{ $position->name }}</div>
                     @foreach ($position->players as $player)
                         {{-- <div class="bg-red-500 p-4">2 </div> --}}
-                        <div class="player-container">
+                        <div class="player-container bg-white">
                             <a class="player hasImage no-underline hover:underline" href="/players/{{ $player->slug }}">
-                                <div class="image-container ">
+                                <div class="image-container border-t-2 border-orange-500 ">
 
-                                    <img class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-[2500ms] ..."
+                                    <img class="transition  ease-in-out bg-gray-200 delay-150 hover:-translate-y-1 hover:scale-105 duration-[2500ms] ..."
                                         src="https://www.itfc.co.uk/api/image/cropandgreyscale/e5005c58-be2a-4cf5-b0b9-5a2b62e742d5/?preset=square&greyscale=false">
 
                                 </div>
@@ -53,7 +53,7 @@
                                     <h3 class="player-name">
                                         <span class="text-2xl ">{{ $player->player_number }}</span><br>
                                         <span class="text-xl font-semibold">{{ $player->fname }}</span><br>
-                                        <span class="font-semibold text-3xl text-gray-700">{{ $player->lname }}</span>
+                                        <span class="font-semibold text-2xl text-gray-700">{{ $player->lname }}</span>
                                     </h3>
                                 </div>
                             </a>

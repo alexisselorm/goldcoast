@@ -31,7 +31,7 @@
             <div class="text-center text-start">
                 {{-- Heading --}}
                 <div class="text-4xl font-extrabold text-start p-4 md:col-span-4">
-                    GoldCoast FC First Team</div>
+                    GoldCoast FC Team Staff</div>
             </div>
             {{-- Players section --}}
             @foreach ($positions as $position)

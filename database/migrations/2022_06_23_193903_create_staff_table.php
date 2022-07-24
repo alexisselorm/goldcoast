@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('fname');
             $table->string('lname');
+            $table->string('slug');
             $table->foreignId('position_id');
             $table->timestamps();
         });

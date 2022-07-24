@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminNewsController;
-use App\Http\Controllers\Admin\AdminPlayerController;
-use App\Http\Controllers\Admin\AdminStaffController;
-use App\Http\Controllers\Admin\ImageController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\PlayerController;
 use App\Models\News;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\StaffController;
+use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\AdminNewsController;
+use App\Http\Controllers\Admin\AdminStaffController;
+use App\Http\Controllers\Admin\AdminPlayerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,8 +41,8 @@ Route::get('/players', [PlayerController::class, 'all'])->name('players');
 Route::get('players/{player:slug}', [PlayerController::class, 'show']);
 
 // Staff
-Route::get('/staff', [PlayerController::class, 'all'])->name('staff');
-Route::get('staff/{single_staff:slug}', [PlayerController::class, 'show']);
+Route::get('/staff', [StaffController::class, 'all'])->name('staff');
+Route::get('staff/{single_staff:slug}', [StaffController::class, 'show']);
 
 // News and Comments
 Route::get('news', [NewsController::class, 'all'])->name('news');

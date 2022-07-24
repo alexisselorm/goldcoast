@@ -20,7 +20,7 @@ class PlayerController extends Controller
     {
         //  Used in laravel
         return view('players.players',
-        ['positions' => Position::with(['players'])->get(),
+        ['positions' => Position::where('id','<',5)->with(['players'])->get(),
         ]
     );
 

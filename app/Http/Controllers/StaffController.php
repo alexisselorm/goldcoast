@@ -11,9 +11,12 @@ class StaffController extends Controller
 
     public function all()
     {
+        // $positions = Position::where('id','>',4)->with(['staff'])->get();
+        // dd($positions);
+
         //  Used in laravel
-        return view('staff',
-            ['positions' => Position::with(['staff'])->where('position','>',4)->get(),
+        return view('staff.staff',
+            ['positions' => Position::where('id','>',4)->with(['staff'])->get(),
             ]
         );
 

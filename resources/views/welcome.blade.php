@@ -30,7 +30,25 @@
 
 
         <!-- hero section -->
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-gray-800">
+            <div class="text-center text-white">
+                <div class="grid gap-2 p-4 md:grid-cols-4 md:grid-rows-3">
+                    <div class="bg-blue-500 p-4 md:col-span-3 md:row-span-3">1</div>
+                    <div class="bg-red-500 p-4">2 </div>
+                    <div class="bg-yellow-500 p-4">3</div>
+                    <div class="bg-green-500 p-4">4</div>
+                    <div class="bg-orange-500 p-4">5</div>
+                    <div class="bg-pink-500 p-4">6</div>
+                    <div class="bg-purple-500 p-4">7</div>
+                    <div class="bg-zinc-500 p-4">8</div>
+                    <div class="bg-sky-400 p-4">9</div>
+                    <div class="bg-lime-400 p-4">9</div>
+                </div>
+            </div>
+        </div>
+
+        {{-- <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <section class="bg-black relative overflow-hidden mb-[40px] -mx-[40px] block">
                 <div class="h-auto pr-[25%] w-full overflow-hidden float-left box-border">
                     <a href="#" class="w-full h-full relative block border-none">
@@ -128,7 +146,8 @@
 
             </section>
 
-        </div>
+        </div> --}}
+        {{-- End of hero --}}
         {{-- News area --}}
         <!-- component -->
         <hr />

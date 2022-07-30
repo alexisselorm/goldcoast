@@ -18,7 +18,11 @@ return new class extends Migration
             // When a news post is deleted, deleted all associated comments.
             $table->foreignId('news_id')->constrained()->cascadeOnDelete();
             $table->unsignedBigInteger('user_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('parent_id')->unsigned();
             $table->text('body');
+            $table->integer('commentable_id')->unsigned();
+            $table->string('commentable_type');
             $table->timestamps();
         });
     }

@@ -44,10 +44,13 @@ Route::get('players/{player:slug}', [PlayerController::class, 'show']);
 Route::get('/staff', [StaffController::class, 'all'])->name('staff');
 Route::get('staff/{single_staff:slug}', [StaffController::class, 'show']);
 
-// News and Comments
+// News
 Route::get('news', [NewsController::class, 'all'])->name('news');
 Route::get('news/{single_news:slug}', [NewsController::class, 'single_news']);
-Route::post('news/{single_news:slug}/comments', [CommentController::class, 'store']);
+
+// Comments
+Route::post('/comments/store', [CommentController::class, 'store'])->name('comment.add');
+// Route::post('news/{single_news:slug}/comments', [CommentController::class, 'store'])->name('comment.add');
 
 // Admin Stuff
 

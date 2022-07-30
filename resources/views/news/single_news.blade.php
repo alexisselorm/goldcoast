@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-guest-layout>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
     I heard my title is {{ $single_news->title }}
 
     {!! $single_news->body !!}
 
-</body>
-
-</html>
+</x-guest-layout>

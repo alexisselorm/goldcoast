@@ -15,6 +15,9 @@
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">
+            <div class="">
+                @include('layouts.users.navigation')
+            </div>
             {{ $slot }}
         </div>
     </body>

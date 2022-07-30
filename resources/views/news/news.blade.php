@@ -22,10 +22,6 @@
             </div>
         @endif
 
-        <div class="">
-            @include('layouts.users.navigation')
-        </div>
-
         {{-- News Card --}}
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-gray-800">
             <div class="text-center text-white">

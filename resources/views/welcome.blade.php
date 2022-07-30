@@ -22,10 +22,6 @@
             </div>
         @endif
 
-        <div class="">
-            @include('layouts.users.navigation')
-        </div>
-
 
 
 

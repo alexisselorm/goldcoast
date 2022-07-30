@@ -17,4 +17,18 @@ class CommentController extends Controller
 
         return back();
     }
+
+    public function reply(Comment $reply)
+    {
+        $reply = new Comment();
+        $reply->body = request()->get('comment_body');
+        $reply->user()->associate(request()->user());
+        $reply->parent_id = request()->get('comment_id');
+        $news = News::find(request()->get('news_id'));
+
+        $news->comments()->save($reply);
+
+        return back();
+
+    }
 }

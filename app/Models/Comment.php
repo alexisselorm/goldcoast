@@ -20,4 +20,9 @@ class Comment extends Model
     {
         return $this->belongsTo(News::class);
     }
+
+    public function replies()
+    {
+        return $this->hasMany(Comment::class, 'parent_id');
+    }
 }

@@ -50,7 +50,7 @@ Route::get('news/{single_news:slug}', [NewsController::class, 'single_news']);
 
 // Comments
 Route::post('/comments/store', [CommentController::class, 'store'])->name('comment.add');
-// Route::post('news/{single_news:slug}/comments', [CommentController::class, 'store'])->name('comment.add');
+Route::post('/reply',[CommentController::class,'reply'])->name('reply');
 
 // Admin Stuff
 

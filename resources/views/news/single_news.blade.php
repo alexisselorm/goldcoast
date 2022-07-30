@@ -9,12 +9,8 @@
 
     {{-- View Comment --}}
     <h4>Display Comments</h4>
-    @foreach ($single_news->comments as $comment)
-        <div class="display-comment">
-            <strong>{{ $comment->user->name }}</strong>
-            <p>{{ $comment->body }}</p>
-        </div>
-    @endforeach
+    @include('partials._comment_replies', ['comments' => $single_news->comments, 'news_id' => $single_news->id])
+
     {{-- Add Comments --}}
     <hr />
 

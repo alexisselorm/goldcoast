@@ -27,21 +27,24 @@
             <div class="text-center text-white">
                 <div class="grid gap-2 p-4 md:grid-cols-4">
                     {{-- Beginning of card --}}
+                    @foreach ($news as $single_news )
+
+                    @endforeach
                     <div class="col-sm-3 col-xs-12 article-container">
                         <a class="article  hasImage"
-                            href="/news/2022/july/kieran-mckenna-on-towns-pre-season-victory-over-southend/">
+                            href="news/{{ $single_news->slug }}">
                             <div class="image-container">
-                                <img src="https://www.itfc.co.uk/siteassets/image/202223/pre-season-games/southend-united-h/kieran-mckenna-southend-h.jpg/Medium"
+                                <img src="{{$single_news->thumbnail}}"
                                     alt="">
                             </div>
                             <div class="article-panel match-height" style="height: 187px;">
 
                                 <div class="news-detail-wrap">
                                     <span class="category detail">Interviews</span>
-                                    <h3 class="h5">KIERAN ON SOUTHEND SUCCESS</h3>
-                                    <span class="date detail">1 Hour ago</span>
+                                    <h3 class="h5">{{ $single_news->title }}</h3>
+                                    <span class="date detail">{{ $single_news->created_at->diffForHumans() }}</span>
                                     <br>
-                                    <p class="synopsis">Boss' thoughts on final pre-season outing</p>
+                                    <p class="synopsis">{!! \Illuminate\Support\Str::limit($single_news->body,50)!!}</p>
                                 </div>
                             </div>
                             <p class="button-container">

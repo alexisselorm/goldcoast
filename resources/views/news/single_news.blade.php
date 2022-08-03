@@ -1,6 +1,5 @@
 <x-guest-layout>
 
-    I heard my title is {{ $single_news->title }}
 
     {!! $single_news->body !!}
 
@@ -9,7 +8,10 @@
 
     {{-- View Comment --}}
     <h4>Display Comments</h4>
-    @include('partials._comment_replies', ['comments' => $single_news->comments, 'news_id' => $single_news->id])
+    @include('partials._comment_replies', [
+        'comments' => $single_news->comments,
+        'news_id' => $single_news->id,
+    ])
 
     {{-- Add Comments --}}
     <hr />

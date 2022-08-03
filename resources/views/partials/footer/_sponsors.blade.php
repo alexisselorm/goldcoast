@@ -10,8 +10,5 @@
                 <li class="mb-4">
                     <a href="#" class="hover:underline">Facebook</a>
                 </li>
-                <li class="mb-4">
-                    <a href="#" class="hover:underline">Contact Us</a>
-                </li>
             </ul>
         </div>

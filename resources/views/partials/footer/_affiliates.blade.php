@@ -7,8 +7,6 @@
         <li class="mb-4">
             <a href="#" class="hover:underline">Liverpool</a>
         </li>
-        <li class="mb-4">
-            <a href="#" class="hover:underline">Terms &amp; Conditions</a>
-        </li>
+
     </ul>
 </div>

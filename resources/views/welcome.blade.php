@@ -62,6 +62,16 @@
             </div>
         </div>
 
+        {{-- Follow us --}}
+        <div class="mx-auto bg-gray-800 max-w-7xl sm:px-6 lg:px-8">
+            <div class="text-center text-white">
+                <div class="grid gap-2 p-4 md:grid-cols-3">
+                    <div class="p-4 bg-blue-500 md:col-span-3">
+                        1
+                    </div>
+                </div>
+            </div>
+        </div>
         {{-- Newsletter --}}
         <x-newsletter />
         {{-- End of Newsletter --}}

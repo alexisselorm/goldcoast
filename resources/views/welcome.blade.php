@@ -23,9 +23,9 @@
     <x-section-container>
         {{-- <div class="p-4 bg-blue-500 md:col-span-3">1</div> --}}
         {{-- Put foreach here --}}
-        @foreach ($extranews->skip(4) as $new)
-            <div class="p-4 bg-red-500">
-                {{ $new->title }}
+        @foreach ($extranews->skip(4) as $extra_news)
+            <div class="p-4">
+                <x-extra-news-card :singlenews="$extra_news" />
             </div>
         @endforeach
 

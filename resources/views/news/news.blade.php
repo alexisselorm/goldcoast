@@ -13,36 +13,30 @@
     @endif
 
     {{-- News Card --}}
-    <div class="mx-auto bg-gray-800 max-w-7xl sm:px-6 lg:px-8">
-        <div class="text-center text-white">
-            <div class="grid gap-2 p-4 md:grid-cols-4">
+    <div class="mx-auto max-w-7xl sm:px-1 lg:px-1">
+        <div class="text-start text-white">
+            <div class="grid gap-2 p-4 md:grid-cols-3">
                 {{-- Beginning of card --}}
-                @foreach ($news as $single_news)
-                    <div class="col-sm-3 col-xs-12 article-container">
-                        <a class="article hasImage" href="news/{{ $single_news->slug }}">
-                            <div class="image-container">
-                                <img src="{{ $single_news->thumbnail }}" alt="">
-                            </div>
-                            <div class="article-panel match-height" style="height: 187px;">
-
-                                <div class="news-detail-wrap">
-                                    <span class="category detail">Interviews</span>
-                                    <h3 class="h5">{{ $single_news->title }}</h3>
-                                    <span class="date detail">{{ $single_news->created_at->diffForHumans() }}</span>
-                                    <br>
-                                    <p class="synopsis">{!! \Illuminate\Support\Str::limit($single_news->body, 50) !!}</p>
-                                </div>
-                            </div>
-                            <p class="button-container">
-                                <span class="btn btn-primary arrow">Read full article</span>
-                            </p>
-                        </a>
-                    </div>
+                @foreach ($news as $singlenews)
+                    <div class="relative bg-blend-darken">
+     <a href="/news/2022/august/ipswich-town-u21-and-u18-fixtures/" class="news-grid-article hasImage">
+         <img class="reponsive-placeholder"
+             src="{{ $singlenews->thumbnail }}">
+             <div class="absolute w-full top-0 bottom-0 z-10 box-border"
+             style="background:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 80%,#000 100%);">
+         </div>
+         <div class="absolute bottom-3 left-2 z-10">
+             <span class="small">Fixture News</span>
+             <h2 class="text-2xl font-bold">{{ strtoupper($singlenews->title) }}</h2>
+             <span class="">{{ $singlenews->created_at->diffForHumans() }}</span>
+         </div>
+     </a>
+ </div>
                 @endforeach
                 {{-- End of card --}}
             </div>
             Page {{ $news->currentPage() }}
-        </div>    
+        </div>
     {{ $news->links() }}
     </div>
     {{-- End of News Card --}}

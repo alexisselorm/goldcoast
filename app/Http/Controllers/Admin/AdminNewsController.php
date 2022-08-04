@@ -61,7 +61,7 @@ class AdminNewsController extends Controller
         $resized->resize(900, 600);
         $resized->save(public_path('storage/news/' . $filename));
         $path = 'news/' . $filename;
-// dd($path);
+
         $attributes['user_id'] = auth()->id();
         $attributes['slug'] = Str::slug($attributes['title']);
         $attributes['thumbnail'] = Storage::disk('public')->url($path);

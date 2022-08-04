@@ -58,7 +58,7 @@ class AdminNewsController extends Controller
         $image = request()->file('thumbnail');
         $filename = Str::random(12) . $image->getClientOriginalName();
         $resized = Image::make($image->getRealPath());
-        $resized->resize(900, 600);
+        $resized->resize(1100, 600);
         $resized->save(public_path('storage/news/' . $filename));
         $path = 'news/' . $filename;
 

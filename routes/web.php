@@ -27,7 +27,11 @@ Route::post('newsletter', NewsletterController::class);
 
 Route::get('/', function () {
     return view('welcome', [
-        'news' => News::with('author', 'category')->latest()->paginate(3)]);
+        'news' => News::with('author', 'category')->latest()->paginate(4),
+        'extranews' => News::with('author', 'category')->orderBy('id','desc')->paginate(7),
+        ]
+    );
+
 })->name('home');
 
 Route::get('/dashboard', function () {

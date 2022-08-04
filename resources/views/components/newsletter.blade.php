@@ -1,34 +1,46 @@
-<div class="bg-gray-200 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
-    <img src="./images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;">
-    <h5 class="text-3xl">Stay in touch with the latest posts</h5>
-    <p class="text-sm mt-3">Promise to keep the inbox clean. No bugs.</p>
-
-    <div class="mt-10">
-        <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">
-
-            <form method="POST" action="newsletter" class="lg:flex text-sm">
+{{-- Flow bite newsletter --}}
+<section class="bg-white dark:bg-gray-900">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <div class="mx-auto max-w-screen-md sm:text-center">
+            <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl dark:text-white">Sign up for
+                our newsletter</h2>
+            <p class="mx-auto mb-8 max-w-2xl font-light text-gray-500 md:mb-12 sm:text-xl dark:text-gray-400">Stay up to
+                date with the roadmap progress, announcements and exclusive discounts feel free to sign up with your
+                email.</p>
+            <form method="POST" action="newsletter">
                 @csrf
-                <div class="lg:py-3 lg:px-5 flex items-center">
-                    <label for="email" class="hidden lg:inline-block">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                    </label>
-
-                    <input id="email" name="email" type="text" placeholder="Your email address"
-                        class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none">
-                    @error('email')
-                        <span class="text-xs text-red-500">{{ $message }}</span>
-                    @enderror
+                <div class="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
+                    <div class="relative w-full">
+                        <label for="email"
+                            class="hidden mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email
+                            address</label>
+                        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                            <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                            </svg>
+                        </div>
+                        <input
+                            class="block p-3 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="Enter your email" type="email" id="email" name="email" required="">
+                        @error('email')
+                            <span class="text-xs text-red-500">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div>
+                        <x-button type="submit"
+                            class="py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                            Subscribe</x-button>
+                    </div>
                 </div>
-
-                <button type="submit"
-                    class="transition-colors duration-300 bg-blue-500 hover:bg-blue-600 mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8">
-                    Subscribe
-                </button>
+                <div
+                    class="mx-auto max-w-screen-sm text-sm text-left text-gray-500 newsletter-form-footer dark:text-gray-300">
+                    We care about the protection of your data. <a href="#"
+                        class="font-medium text-primary-600 dark:text-primary-500 hover:underline">Read our Privacy
+                        Policy</a>.</div>
             </form>
         </div>
     </div>
-</div>
+</section>
+<hr />

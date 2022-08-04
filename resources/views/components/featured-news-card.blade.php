@@ -1,21 +1,20 @@
 {{-- Jumbo div --}}
+@props(['singlenews'])
 <div class="relative md:col-span-3 md:row-span-3">
     {{-- Major news card --}}
-    <a href="/news/2022/august/new-fanzone-record-set-for-bolton-game/" class="news-grid-article hasImage">
-        <div class="image-container" data-imagetype="inline"
-            data-media-md="/siteassets/image/202223/2223-season/bolton-wanderers-h/fanzone-bolton-h.png/Medium"
-            data-media="/siteassets/image/202223/2223-season/bolton-wanderers-h/fanzone-bolton-h.png/Small"
-            data-media-lg="/siteassets/image/202223/2223-season/bolton-wanderers-h/fanzone-bolton-h.png/Large"><img
-                class="reponsive-placeholder"
-                src="https://www.itfc.co.uk/siteassets/image/202223/2223-season/bolton-wanderers-h/fanzone-bolton-h.png/Large">
+    <a href="/news/{{ $singlenews->slug }}">
+        <div>
+            <img class="" src="{{ $singlenews->thumbnail }}">
 
         </div>
+        <div class="absolute w-full top-0 bottom-0 z-10 box-border"
+            style="background:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 80%,#000 100%);">
+        </div>
 
-
-        <div class="absolute text-white bottom-5 left-5">
-            <span class="small">Club News</span>
-            <h2 class="text-2xl">FANZONE RECORD BROKEN AGAIN</h2>
-            <span class="date detail">17 Hours ago</span>
+        <div class="absolute z-10 text-white bottom-5 left-5">
+            <span class="block text-[1em] leading-[1.5em] box-border">Club News</span>
+            <h2 class="text-[2em] block leading-[1.17em] font-[600] mt-0">{{ strtoupper($singlenews->title) }}</h2>
+            <span class="mt-[5px] text-[0.78em] leading-[1.67em]">{{ $singlenews->created_at->diffForHumans() }}</span>
         </div>
     </a>
     {{-- End of news --}}

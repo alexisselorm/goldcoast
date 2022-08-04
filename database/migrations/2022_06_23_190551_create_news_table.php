@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             // When an author is deleted, delete all his associated news posts
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->string('slug');
             $table->string('title');
             $table->text('body');

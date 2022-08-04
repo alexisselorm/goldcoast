@@ -1,11 +1,13 @@
-<div class="mx-auto bg-gray-800 max-w-7xl sm:px-6 lg:px-8">
+@props(['news'])
+<div class="mx-auto bg-gray-800 max-w-7xl sm:px-1 lg:px-1">
     <div class="text-white text-start">
         <div class="grid gap-2 p-4 md:grid-cols-4 md:grid-rows-3">
-            <x-featured-news-card />
+            <x-featured-news-card :singlenews="$news[0]" />
             {{-- Extra news --}}
-            <x-extra-news-card />
-            <x-extra-news-card />
-            <x-extra-news-card />
+            @foreach ($news->skip(1) as $extra_news)
+                <x-extra-news-card :singlenews="$extra_news" />
+            @endforeach
+
             {{-- End of extra news --}}
 
         </div>

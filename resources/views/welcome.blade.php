@@ -17,43 +17,35 @@
 
 
     <!-- hero section -->
-    <x-hero-card />
+    <x-hero-card :news="$news" />
     {{-- End of hero section --}}
 
-    <div class="mx-auto mt-4 bg-gray-600 max-w-7xl sm:px-6 lg:px-8">
-        <div class="text-center text-white">
-            <div class="grid gap-2 p-4 md:grid-cols-3">
-                {{-- <div class="p-4 bg-blue-500 md:col-span-3">1</div> --}}
-                {{-- Put foreach here --}}
-                <div class="p-4 bg-red-500">
-                    2
-                </div>
-                {{-- End foreach here --}}
-                <div class="p-4 bg-yellow-500">3</div>
-                <div class="p-4 bg-green-500">4</div>
+    <x-section-container>
+        {{-- <div class="p-4 bg-blue-500 md:col-span-3">1</div> --}}
+        {{-- Put foreach here --}}
+        @foreach ($extranews->skip(4) as $new)
+            <div class="p-4 bg-red-500">
+                {{ $new->title }}
+            </div>
+        @endforeach
 
-            </div>
-        </div>
-    </div>
+        {{-- End foreach here --}}
+    </x-section-container>
     {{-- Second --}}
-    
-    <div class="mx-auto bg-gray-800 max-w-7xl sm:px-6 lg:px-8">
-        <div class="text-white text-start">
-            <div class="grid gap-2 p-4 md:grid-cols-3">
-                Fixtures
-                <div class="p-4 bg-blue-500 md:col-span-3">1</div>
-                <div class="p-4 bg-red-500">2 </div>
-                <div class="p-4 bg-yellow-500">3</div>
-                <div class="p-4 bg-green-500">4</div>
-                <div class="p-4 bg-orange-500">5</div>
-                <div class="p-4 bg-pink-500">6</div>
-                <div class="p-4 bg-purple-500">7</div>
-                <div class="p-4 bg-zinc-500">8</div>
-                <div class="p-4 bg-sky-400">9</div>
-                <div class="p-4 bg-lime-400">9</div>
-            </div>
-        </div>
-    </div>
+
+    <x-section-container>
+        Fixtures
+        <div class="p-4 bg-blue-500 md:col-span-3">1</div>
+        <div class="p-4 bg-red-500">2 </div>
+        <div class="p-4 bg-yellow-500">3</div>
+        <div class="p-4 bg-green-500">4</div>
+        <div class="p-4 bg-orange-500">5</div>
+        <div class="p-4 bg-pink-500">6</div>
+        <div class="p-4 bg-purple-500">7</div>
+        <div class="p-4 bg-zinc-500">8</div>
+        <div class="p-4 bg-sky-400">9</div>
+        <div class="p-4 bg-lime-400">9</div>
+    </x-section-container>
 
     {{-- Newsletter --}}
     <x-newsletter />

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use cloudinary;
-use App\Models\News;
-use Illuminate\Support\Str;
 use App\Helpers\RequestHelper;
 use App\Http\Controllers\Controller;
+use App\Models\News;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Image;
 
 class AdminNewsController extends Controller
 {
@@ -54,11 +54,17 @@ class AdminNewsController extends Controller
         if ($validate->fails()) {
             return $this->helper->failResponse($validate->errors()->first());
         }
-        $image =request()->file('thumbnail')->store('news', 'public');
+        // $image =request()->file('thumbnail')->store('news', 'public');
+        $image = request()->file('thumbnail');
+        $filename = Str::random(12) . $image->getClientOriginalName();
+        $resized = Image::make($image->getRealPath());
+        $resized->resize(900, 600);
+        $resized->save(public_path('storage/news/' . $filename));
+        $path = 'news/' . $filename;
+// dd($path);
         $attributes['user_id'] = auth()->id();
         $attributes['slug'] = Str::slug($attributes['title']);
-        $attributes['thumbnail'] = Storage::disk('public')->url($image);
-        // dd($attributes);
+        $attributes['thumbnail'] = Storage::disk('public')->url($path);
 
         News::create($attributes);
 

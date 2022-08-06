@@ -27,15 +27,18 @@
                 <input type="hidden" name="news_id" value={{ $single_news->id }} />
                 {{-- {{dd($single_news->id)}} --}}
             </div>
+
             <div class="form-group">
-                <input type="submit" class="btn btn-warning" value="Add Comment" />
+                <x-button type="submit" class="btn btn-warning" value="Add Comment" >Comment</x-button>
             </div>
+
         </form>
     </div>
             </div>
         </div>
     </div>
-
-
+    
+            
+           
     {{-- End of replies --}}
 </x-guest-layout>

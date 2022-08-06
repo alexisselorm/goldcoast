@@ -17,3 +17,9 @@
     @include('partials._comment_replies', ['comments' => $comment->replies])
 </div>
 @endforeach
+{{-- Test alpine --}}
+ {{-- <div x-data="{ show: false }">
+                <input x-show="show" type="text" id="input" x-ref="input" />
+                <button @click="show = !show; $nextTick(() => { $refs.input.focus(); });">Reply</button>
+            </div> --}}
+            {{-- End of test alpine --}} 

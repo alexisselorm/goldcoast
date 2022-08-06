@@ -1,3 +1,16 @@
+@if (Route::has('login'))
+<div class="fixed top-0 right-0 hidden px-6 py-4 sm:block">
+    @auth
+    @else
+        <a href="{{ route('login') }}" class="text-white text-m dark:text-gray-500 ">Log in</a>
+
+        @if (Route::has('register'))
+            <a href="{{ route('register') }}" class="ml-4 text-white text-m dark:text-gray-500">Register</a>
+        @endif
+    @endauth
+</div>
+@endif
+
 <nav x-data="{ open: false }" class=" bg-orange-600 border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4  sm:px-6 lg:px-8">
@@ -10,8 +23,8 @@
                     </a>
                     {{-- Team name --}}
                     <div>
-<h2 class="m-6  text-[1.12em] font-bold text-black uppercase dark:text-white">
-    GOLD COAST FC</h2>
+                        <h2 class="m-6  text-[1.12em] font-bold text-black uppercase dark:text-white">
+                         GOLD COAST FC</h2>
                     </div>
                 </div>
 

@@ -1,7 +1,7 @@
 <x-guest-layout>
 
-    <div class="mx-auto bg-gray-800 max-w-7xl sm:px-6 lg:px-8">
-        <div class="text-white text-start">
+    <div class="mx-auto  max-w-7xl sm:px-6 lg:px-8">
+        <div class="dark:text-white text-start">
             <div class="grid gap-2 p-4 md:grid-cols-4 md:grid-rows-3">
                 <div class="p-4 md:col-span-3">
                     {!! $single_news->body !!}
@@ -37,8 +37,8 @@
             </div>
         </div>
     </div>
-    
-            
-           
+
+
+
     {{-- End of replies --}}
 </x-guest-layout>

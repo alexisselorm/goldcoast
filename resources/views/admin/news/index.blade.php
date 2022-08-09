@@ -8,18 +8,17 @@
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div class="p-6 bg-white border-b border-orange-200">
                     <!-- component -->
                     <div class="overflow-x-auto">
                         <div class="flex justify-center min-h-screen overflow-hidden font-sans bg-gray-100 min-w-screen">
-                            <div class="w-full lg:w-5/6">
+                            <div class="w-full lg:w-6/6">
                                 <div class="bg-white rounded shadow-md">
                                     <table class="w-full table-auto min-w-max">
                                         <thead>
                                             <tr class="text-sm leading-normal text-gray-600 uppercase bg-gray-200">
                                                 <th class="px-6 py-3 text-left">Title</th>
                                                 <th class="px-6 py-3 text-left">Author</th>
-                                                <th class="px-6 py-3 text-center">Status</th>
                                                 <th class="px-6 py-3 text-center">Actions</th>
                                             </tr>
                                         </thead>
@@ -39,11 +38,6 @@
                                                             </div>
                                                             <span>{{ $single_news->author->name }}</span>
                                                         </div>
-                                                    </td>
-
-                                                    <td class="px-6 py-3 text-center">
-                                                        <span
-                                                            class="px-3 py-1 text-xs text-green-700 bg-green-200 rounded-full">Active</span>
                                                     </td>
                                                     <td class="px-6 py-3 text-center">
                                                         <div class="flex justify-center item-center">

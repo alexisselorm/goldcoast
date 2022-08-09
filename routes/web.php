@@ -1,16 +1,16 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminNewsController;
+use App\Http\Controllers\Admin\AdminPlayerController;
+use App\Http\Controllers\Admin\AdminStaffController;
+use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\StaffController;
 use App\Models\News;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\StaffController;
-use App\Http\Controllers\PlayerController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\Admin\ImageController;
-use App\Http\Controllers\Admin\AdminNewsController;
-use App\Http\Controllers\Admin\AdminStaffController;
-use App\Http\Controllers\Admin\AdminPlayerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +28,8 @@ Route::post('newsletter', NewsletterController::class);
 Route::get('/', function () {
     return view('welcome', [
         'news' => News::with('author', 'category')->latest()->paginate(4),
-        'extranews' => News::with('author', 'category')->orderBy('id','desc')->paginate(7),
-        ]
+        'extranews' => News::with('author', 'category')->orderBy('id', 'desc')->paginate(7),
+    ]
     );
 
 })->name('home');
@@ -50,11 +50,11 @@ Route::get('staff/{single_staff:slug}', [StaffController::class, 'show']);
 
 // News
 Route::get('news', [NewsController::class, 'all'])->name('news');
-Route::get('news/{single_news:slug}', [NewsController::class, 'single_news']);
+Route::get('news/{single_news:slug}', [NewsController::class, 'single_news'])->name('single_news');
 
 // Comments
 Route::post('/comments/store', [CommentController::class, 'store'])->name('comment.add');
-Route::post('/reply',[CommentController::class,'reply'])->name('reply');
+Route::post('/reply', [CommentController::class, 'reply'])->name('reply');
 
 // Admin Stuff
 
@@ -64,7 +64,7 @@ Route::group(['middleware' => 'admin'], function () {
         //NEWS
         // Route::resource('news', AdminNewsController::class)->except('show');
         Route::get('news', [AdminNewsController::class, 'index'])->name('admin.news');
-        Route::get('news/{single_news}/edit', [AdminNewsController::class, 'edit']);
+        Route::get('news/{single_news}/edit', [AdminNewsController::class, 'edit'])->name('edit.news');
         Route::patch('news/{single_news}', [AdminNewsController::class, 'update']);
         Route::delete('news/{single_news}', [AdminNewsController::class, 'destroy']);
         Route::get('news/create', [AdminNewsController::class, 'create']);

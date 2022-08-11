@@ -55,17 +55,13 @@ class AdminNewsController extends Controller
         }
         // $image =request()->file('thumbnail')->store('news', 'public');
         $image = request()->file('thumbnail');
-        $filename = Str::random(12).$image->getClientOriginalName();
-        $resized = Image::make($image->getRealPath());
-        $resized->resize(1100, 600);
-        $resized->save(public_path('storage/news/'.$filename));
-        $path = 'storage/news/'.$filename;
-        // dd(('storage/news/' . $filename));
+        $filename = Str::random(12) . $image->getClientOriginalName();
+        $path = 'storage/news/' . $filename;
+        Image::make($image->getRealPath())->resize(1100, 600)->save(public_path($path));
 
         $attributes['user_id'] = auth()->id();
         $attributes['slug'] = Str::slug($attributes['title']);
         $attributes['thumbnail'] = $path;
-        // $image->sto($path);
 
         // dd($path);
 

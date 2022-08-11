@@ -66,6 +66,8 @@ class AdminNewsController extends Controller
         $attributes['slug'] = Str::slug($attributes['title']);
         $attributes['thumbnail'] = Storage::disk('public')->url($path);
 
+        // dd($path);
+
         News::create($attributes);
 
         return redirect('admin/news')->with('success', 'Post created');

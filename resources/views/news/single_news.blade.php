@@ -1,13 +1,14 @@
 <x-guest-layout>
 
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class=" text-start">
-            <div class="grid gap-2 p-4 md:grid-cols-6 md:grid-rows-3">
+        <div class="text-start text-[1.2em]">
+            <div class="grid gap-2 p-4 md:grid-cols-6 md:grid-rows-1">
                 <div class="p-4 md:col-start-2 md:col-span-4">
                     {!! $single_news->body !!}
                 </div>
                 <div class="p-4 md:col-start-2 md:col-span-4">
                     <div id="disqus_thread"></div>
+
                     <script>
                         /**
                          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -32,31 +33,8 @@
                     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
                             powered by
                             Disqus.</a></noscript>
-                    {{-- Reply section --}}
-
-                    {{-- View Comment --}}
-                    {{-- <h4>Display Comments</h4>
-                    @include('partials._comment_replies', [
-                        'comments' => $single_news->comments,
-                        'news_id' => $single_news->id,
-                    ]) --}}
-
-                    {{-- Add Comments --}}
                     <hr />
-                    {{-- <h4>Add comment</h4>
-                    <form method="post" action="{{ route('comment.add') }}">
-                        @csrf
-                        <div class="form-group">
-                            <x-input type="text" name="comment_body" class="form-control" />
-                            <x-input type="hidden" name="news_id" value={{ $single_news->id }} />
 
-                        </div>
-
-                        <div class="form-group">
-                            <x-button type="submit" class="btn btn-warning" value="Add Comment">Comment</x-button>
-                        </div>
-
-                    </form> --}}
                 </div>
             </div>
         </div>

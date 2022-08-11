@@ -1,4 +1,4 @@
-<div class="px-4 py-6 bg-orange-100 dark:bg-orange-700 md:flex md:items-center md:justify-between">
+<div class="px-4 py-6 bg-orange-700 md:flex md:items-center md:justify-between">
     <span class="text-sm text-white-500 dark:text-white-300 sm:text-center">{{ date('Y') }} <a
             href="https://flowbite.com/">GoldCoast FC</a>. All Rights Reserved.
     </span>

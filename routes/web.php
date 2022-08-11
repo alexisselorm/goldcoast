@@ -31,14 +31,13 @@ Route::get('/', function () {
         'extranews' => News::with('author', 'category')->orderBy('id', 'desc')->paginate(7),
     ]
     );
-
 })->name('home');
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'admin'])->name('dashboard');
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
 
 // Players
 Route::get('/players', [PlayerController::class, 'all'])->name('players');
@@ -59,7 +58,6 @@ Route::post('/reply', [CommentController::class, 'reply'])->name('reply');
 // Admin Stuff
 
 Route::group(['middleware' => 'admin'], function () {
-
     Route::prefix('admin')->group(function () {
         //NEWS
         // Route::resource('news', AdminNewsController::class)->except('show');

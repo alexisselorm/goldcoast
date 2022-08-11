@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Helpers\RequestHelper;
 use App\Http\Controllers\Controller;
 use App\Models\News;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Image;
@@ -56,15 +55,17 @@ class AdminNewsController extends Controller
         }
         // $image =request()->file('thumbnail')->store('news', 'public');
         $image = request()->file('thumbnail');
-        $filename = Str::random(12) . $image->getClientOriginalName();
+        $filename = Str::random(12).$image->getClientOriginalName();
         $resized = Image::make($image->getRealPath());
         $resized->resize(1100, 600);
-        $resized->save(public_path('storage/news/' . $filename));
-        $path = 'news/' . $filename;
+        $resized->save(public_path('storage/news/'.$filename));
+        $path = 'storage/news/'.$filename;
+        // dd(('storage/news/' . $filename));
 
         $attributes['user_id'] = auth()->id();
         $attributes['slug'] = Str::slug($attributes['title']);
-        $attributes['thumbnail'] = Storage::disk('public')->url($path);
+        $attributes['thumbnail'] = $path;
+        // $image->sto($path);
 
         // dd($path);
 

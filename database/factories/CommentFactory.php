@@ -20,7 +20,7 @@ class CommentFactory extends Factory
     {
         return [
             //
-            'news_id'=> News::factory(),
+            'news_id' => News::factory(),
             'user_id' => User::factory(),
             'body' => $this->faker->paragraph(),
         ];

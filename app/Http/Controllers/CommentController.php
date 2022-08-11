@@ -29,6 +29,5 @@ class CommentController extends Controller
         $news->comments()->save($reply);
 
         return back();
-
     }
 }

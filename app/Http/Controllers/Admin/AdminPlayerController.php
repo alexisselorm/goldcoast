@@ -79,7 +79,7 @@ class AdminPlayerController extends Controller
         // dd($attributes);
         $image = request()->file('picture')->store('players', 'public');
 
-        $attributes['slug'] = Str::slug($attributes['fname'] . ' ' . $attributes['lname']);
+        $attributes['slug'] = Str::slug($attributes['fname'].' '.$attributes['lname']);
         $attributes['picture'] = Storage::disk('public')->url($image);
 
         Player::create($attributes);
@@ -111,7 +111,7 @@ class AdminPlayerController extends Controller
         if (isset($attributes['picture'])) {
             $attributes['picture'] = $attributes['picture'] = Storage::disk('public')->url(request()->file('picture')->store('pictures', 'public'));
         }
-        $attributes['slug'] = Str::slug($attributes['fname'] . ' ' . $attributes['lname']);
+        $attributes['slug'] = Str::slug($attributes['fname'].' '.$attributes['lname']);
 
         $player->update($attributes);
 

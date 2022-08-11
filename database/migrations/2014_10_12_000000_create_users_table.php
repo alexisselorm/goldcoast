@@ -24,7 +24,7 @@ return new class extends Migration
             $table->timestamps();
             // $table->tinyInteger('role')->default(0);
             // 0 = Users . 1= Admins  . 2=Writers
-            $table->enum('role', ['admin', 'user','writer'])->default('user');
+            $table->enum('role', ['admin', 'user', 'writer'])->default('user');
         });
     }
 

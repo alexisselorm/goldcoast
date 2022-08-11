@@ -6,7 +6,6 @@ use App\Models\Comment;
 use App\Models\News;
 use App\Models\Player;
 use App\Models\User;
-use Database\Seeders\PositionSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

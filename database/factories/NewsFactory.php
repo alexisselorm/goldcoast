@@ -22,7 +22,7 @@ class NewsFactory extends Factory
             'slug' => $this->faker->sentence(),
             'title' => $this->faker->sentence(),
             'body' => $this->faker->paragraph(),
-            'thumbnail' =>$this->faker->image(),
+            'thumbnail' => $this->faker->image(),
         ];
     }
 }

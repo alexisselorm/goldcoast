@@ -16,7 +16,7 @@ class StaffController extends Controller
 
         //  Used in laravel
         return view('staff.staff',
-            ['positions' => Position::where('id','>',4)->with(['staff'])->get(),
+            ['positions' => Position::where('id', '>', 4)->with(['staff'])->get(),
             ]
         );
 

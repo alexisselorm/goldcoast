@@ -4,7 +4,7 @@
     {{-- Major news card --}}
     <a href="/news/{{ $singlenews->slug }}">
         <div>
-            <img class="" src="{{ $singlenews->thumbnail }}">
+            <img src="{{ $singlenews->thumbnail }}">
 
         </div>
         <div class="absolute w-full top-0 bottom-0 z-10 box-border"

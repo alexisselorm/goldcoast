@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call(PositionSeeder::class);
+        $this->call(CategorySeeder::class);
         User::factory(10)->create();
         News::factory(10)->create();
         Player::factory(20)->create();

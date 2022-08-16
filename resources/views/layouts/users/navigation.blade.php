@@ -1,14 +1,14 @@
 @if (Route::has('login'))
-<div class="fixed top-0 right-0 hidden px-6 py-4 sm:block">
-    @auth
-    @else
-        <a href="{{ route('login') }}" class="text-white text-m dark:text-gray-500 ">Log in</a>
+    <div class="fixed top-0 right-0 hidden px-6 py-4 sm:block">
+        @auth
+        @else
+            <a href="{{ route('login') }}" class="text-white text-m dark:text-gray-500 ">Log in</a>
 
-        @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="ml-4 text-white text-m dark:text-gray-500">Register</a>
-        @endif
-    @endauth
-</div>
+            @if (Route::has('register'))
+                <a href="{{ route('register') }}" class="ml-4 text-white text-m dark:text-gray-500">Register</a>
+            @endif
+        @endauth
+    </div>
 @endif
 
 <nav x-data="{ open: false }" class=" bg-orange-600 border-b border-gray-100">
@@ -18,13 +18,13 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center ">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('home') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-900" />
                     </a>
                     {{-- Team name --}}
                     <div>
                         <h2 class="m-6  text-[1.12em] font-bold text-black uppercase dark:text-white">
-                         GOLD COAST FC</h2>
+                            GOLD COAST FC</h2>
                     </div>
                 </div>
 
@@ -134,7 +134,7 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Authentication -->
-                
+
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 

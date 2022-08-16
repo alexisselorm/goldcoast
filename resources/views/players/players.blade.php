@@ -42,7 +42,8 @@
                                 <div class="image-container border-t-2 border-orange-500 ">
 
                                     <img class="transition  ease-in-out bg-gray-200 delay-150 hover:-translate-y-1 hover:scale-105 duration-[2500ms] ..."
-                                        src="https://www.itfc.co.uk/api/image/cropandgreyscale/e5005c58-be2a-4cf5-b0b9-5a2b62e742d5/?preset=square&greyscale=false">
+                                        {{-- src="https://www.itfc.co.uk/api/image/cropandgreyscale/e5005c58-be2a-4cf5-b0b9-5a2b62e742d5/?preset=square&greyscale=false"> --}}
+                                        src="{{ $player->picture }}">
 
                                 </div>
                                 <div class="player-panel match-height" style="height: 112.562px;">

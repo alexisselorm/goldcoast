@@ -12,7 +12,9 @@ class News extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
 
-    protected $fillable = ['user_id', 'slug', 'title', 'thumbnail', 'body'];
+    // protected $fillable = ['user_id', 'slug', 'title', 'thumbnail', 'body'];
+
+    protected $guarded = ['id'];
 
     // Relationships
     public function author()

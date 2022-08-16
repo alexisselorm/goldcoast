@@ -48,9 +48,6 @@ class AdminPlayerController extends Controller
             redirect('/home');
         }
         // dd(auth()->user());
-        if (auth()->user()?->username !== 'Alexis') {
-            abort(403);
-        }
 
         return view('admin.players.create', [
             'positions' => Position::all(),

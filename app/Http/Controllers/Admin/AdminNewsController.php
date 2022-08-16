@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helpers\RequestHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\News;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -23,6 +24,7 @@ class AdminNewsController extends Controller
     {
         return [
             'title' => 'required',
+            'category_id' => 'required',
             'thumbnail' => 'required|image',
             'body' => 'required',
 
@@ -37,13 +39,16 @@ class AdminNewsController extends Controller
             abort(403);
         }
 
-        return view('admin.news.create');
+        return view('admin.news.create', [
+            'categories' => Category::all(),
+        ]);
     }
 
     public function store()
     {
         $attributes = request()->only([
             'title',
+            'category_id',
             'body',
             'thumbnail',
         ]);
@@ -63,7 +68,6 @@ class AdminNewsController extends Controller
         $attributes['slug'] = Str::slug($attributes['title']);
         $attributes['thumbnail'] = $path;
 
-        // dd($path);
 
         News::create($attributes);
 

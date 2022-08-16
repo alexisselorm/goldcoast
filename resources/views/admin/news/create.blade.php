@@ -18,9 +18,19 @@
                                 :value="old('title')" required autofocus />
                         </div>
 
+                        {{-- Categories --}}
+                        <div class="mb-4">
+                            <x-label for="category_id" :value="__('Category')" />
+                            <x-select class="block mt-1 w-full" id="category_id" name="category_id" required autofocus>
+                                @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </x-select>
+                        </div>
+
                         {{-- Body --}}
                         <div class="mb-4">
-                            <x-label for="body" :value="__('body')" />
+                            <x-label for="body" :value="__('Body')" />
                             <textarea id="body" class="block mt-1 w-full" type="text" name="body" required :value="old('body')"
                                 autofocus>{{ old('body') }}</textarea>
                         </div>

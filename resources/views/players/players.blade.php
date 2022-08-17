@@ -33,16 +33,16 @@
             @foreach ($positions as $position)
                 <div class="grid gap-2 p-4 md:grid-cols-4">
                     <div class="space-y-8 text-4xl font-extrabold text-start p-4 md:col-span-4">
-                        <hr/>
-                        {{ $position->name }}</div>
+                        <hr />
+                        {{ $position->name }}
+                    </div>
                     @foreach ($position->players as $player)
                         {{-- <div class="bg-red-500 p-4">2 </div> --}}
                         <div class="player-container bg-white">
                             <a class="player hasImage no-underline hover:underline" href="/players/{{ $player->slug }}">
-                                <div class="image-container border-t-2 border-orange-500 ">
+                                <div class="image-container overflow-hidden border-t-2 border-orange-500 ">
 
-                                    <img class="transition  ease-in-out bg-gray-200 delay-150 hover:-translate-y-1 hover:scale-105 duration-[2500ms] ..."
-                                        {{-- src="https://www.itfc.co.uk/api/image/cropandgreyscale/e5005c58-be2a-4cf5-b0b9-5a2b62e742d5/?preset=square&greyscale=false"> --}}
+                                    <img class="transition  ease-in-out bg-gray-200 delay-150 hover:-translate-y-1 hover:scale-105 duration-[2500ms]"
                                         src="{{ $player->picture }}">
 
                                 </div>

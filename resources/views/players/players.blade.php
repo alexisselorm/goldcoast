@@ -43,7 +43,8 @@
                                 <div class="image-container overflow-hidden border-t-2 border-orange-500 ">
 
                                     <img class="transition  ease-in-out bg-gray-200 delay-150 hover:-translate-y-1 hover:scale-105 duration-[2500ms]"
-                                        src="{{ $player->picture }}">
+                                        {{-- src="{{ $player->picture }}" --}}
+                                        src="https://a.espncdn.com/combiner/i?img=/i/headshots/soccer/players/full/11001.png&w=350&h=254">
 
                                 </div>
                                 <div class="player-panel match-height" style="height: 112.562px;">

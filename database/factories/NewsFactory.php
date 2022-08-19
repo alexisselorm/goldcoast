@@ -21,6 +21,7 @@ class NewsFactory extends Factory
             'user_id' => User::factory(),
             'slug' => $this->faker->sentence(),
             'title' => $this->faker->sentence(),
+            'category_id'=>$this->faker->numberBetween(1,5),
             'body' => $this->faker->paragraph(),
             'thumbnail' => $this->faker->image(),
         ];

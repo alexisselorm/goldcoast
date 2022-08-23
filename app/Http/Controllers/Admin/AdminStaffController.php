@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Helpers\RequestHelper;
-use App\Http\Controllers\Controller;
 use App\Models\Staff;
+use App\Models\Position;
+use Illuminate\Support\Str;
+use App\Helpers\RequestHelper;
+use Illuminate\Validation\Rule;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
 
 class AdminStaffController extends Controller
 {
@@ -39,7 +40,9 @@ class AdminStaffController extends Controller
     //
     public function index()
     {
-        return view('admin.staff.index');
+        return view('admin.staff.index',[
+        'positions' => Position::where('id', '>', 4)->with(['players'])->get(),
+    ]);
     }
 
     public function create()

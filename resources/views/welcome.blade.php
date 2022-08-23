@@ -33,8 +33,31 @@
     </x-section-container>
     {{-- Second --}}
 
+    {{-- Next Fixture --}}
     <x-section-container>
-        Fixtures
+        <span class="text-black">Fixtures</span>
+        <div class="p-4 bg-blue-500 md:col-span-3 flex justify-around items-center text-center align-center">
+            <div class="bg-red-500 ">HOME TEAM</div>
+            <div class="flex-col">
+                <div class="bg-yellow-500 mb-2">DIVISION NAME</div>
+                <div class="bg-purple-500 mb-2">VS</div>
+                <div class="bg-yellow-500 mt-4">TIME</div>
+                <div class="bg-purple-500">Venue</div>
+            </div>
+            <div class="bg-green-500">AWAY TEAM</div>
+        </div>
+    </x-section-container>
+
+    {{-- Another section . Maybe Shop?? --}}
+    <x-section-container>
+        <span class="text-black">SHOP</span>
+        <div class="p-4 bg-blue-500 md:col-span-3 items-center text-center justify-center">SHOP HERE. USE AN
+            EXTERNAL LINK
+            TO HANDLE POSTING AND BUYING</div>
+    </x-section-container>
+
+    {{-- <x-section-container>
+        <span class="text-dark">Fixtures</span>
         <div class="p-4 bg-blue-500 md:col-span-3">1</div>
         <div class="p-4 bg-red-500">2 </div>
         <div class="p-4 bg-yellow-500">3</div>
@@ -45,8 +68,7 @@
         <div class="p-4 bg-zinc-500">8</div>
         <div class="p-4 bg-sky-400">9</div>
         <div class="p-4 bg-lime-400">9</div>
-    </x-section-container>
-
+    </x-section-container> --}}
     {{-- Newsletter --}}
     <x-newsletter />
     {{-- End of Newsletter --}}

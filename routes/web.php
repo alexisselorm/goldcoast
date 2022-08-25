@@ -37,7 +37,7 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'admin'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // Players
 Route::get('/players', [PlayerController::class, 'all'])->name('players');
@@ -72,7 +72,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('players', [AdminPlayerController::class, 'index'])->name('admin.players');
         Route::get('players/{players}/edit', [AdminPlayerController::class, 'edit']);
         Route::patch('players/{player}', [AdminPlayerController::class, 'update']);
-        Route::delete('players/{player}', [AdminPlayerController::class, 'destroy']);
+        Route::delete('players/{player}', [AdminPlayerController::class, 'destroy'])->name('delete.player');
         Route::get('players/create', [AdminPlayerController::class, 'create']);
         Route::post('players', [AdminPlayerController::class, 'store'])->name('player.store');
 
@@ -80,7 +80,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('staff', [AdminStaffController::class, 'index'])->name('admin.staff');
         Route::get('staff/{single_staff}/edit', [AdminStaffController::class, 'edit']);
         Route::patch('staff/{single_staff}', [AdminStaffController::class, 'update']);
-        Route::delete('staff/{single_staff}', [AdminStaffController::class, 'destroy']);
+        Route::delete('staff/{single_staff}', [AdminStaffController::class, 'destroy'])->name('delete.staff');
         Route::get('staff/create', [AdminStaffController::class, 'create']);
         Route::post('staff', [AdminStaffController::class, 'store']);
 

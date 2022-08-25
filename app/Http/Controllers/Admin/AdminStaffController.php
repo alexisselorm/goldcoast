@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Staff;
-use App\Models\Position;
-use Illuminate\Support\Str;
 use App\Helpers\RequestHelper;
-use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use App\Models\Position;
+use App\Models\Staff;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class AdminStaffController extends Controller
 {
@@ -40,9 +40,9 @@ class AdminStaffController extends Controller
     //
     public function index()
     {
-        return view('admin.staff.index',[
-        'positions' => Position::where('id', '>', 4)->with(['players'])->get(),
-    ]);
+        return view('admin.staff.index', [
+            'positions' => Position::where('id', '>', 4)->with(['players'])->get(),
+        ]);
     }
 
     public function create()
@@ -73,7 +73,7 @@ class AdminStaffController extends Controller
         // dd($attributes);
         $image = request()->file('picture')->store('players', 'public');
 
-        $attributes['slug'] = Str::slug($attributes['fname'].' '.$attributes['lname']);
+        $attributes['slug'] = Str::slug($attributes['fname'] . ' ' . $attributes['lname']);
         $attributes['picture'] = Storage::disk('public')->url($image);
 
         Staff::create($attributes);
@@ -83,7 +83,7 @@ class AdminStaffController extends Controller
 
     public function edit(Staff $single_staff)
     {
-        return view('admin.Staff.edit', [
+        return view('admin.staff.edit', [
             'single_staff' => $single_staff,
         ]);
     }
@@ -113,5 +113,5 @@ class AdminStaffController extends Controller
 
         return back();
     }
-    
+
 }

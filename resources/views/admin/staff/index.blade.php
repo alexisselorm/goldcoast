@@ -54,7 +54,7 @@
                                                                 <div
                                                                     class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                                                                     {{-- Preview news item --}}
-                                                                    <a href="{{ route('single_news', $staff->slug) }}"
+                                                                    <a href="{{ route('show.staff', $staff->slug) }}"
                                                                         target='_blank'>
                                                                         <svg xmlns="http://www.w3.org/2000/svg"
                                                                             fill="none" viewBox="0 0 24 24"
@@ -70,7 +70,7 @@
                                                                 </div>
                                                                 <div
                                                                     class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                                    <a href="{{ route('edit.news', $staff->id) }}">
+                                                                    <a href="{{ route('edit.staff', $staff->id) }}">
                                                                         <svg xmlns="http://www.w3.org/2000/svg"
                                                                             fill="none" viewBox="0 0 24 24"
                                                                             stroke="currentColor">

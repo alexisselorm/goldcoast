@@ -37,14 +37,18 @@
     <x-section-container>
         <span class="text-black">Fixtures</span>
         <div class="p-4 bg-blue-500 md:col-span-3 flex justify-around items-center text-center align-center">
-            <div class="bg-red-500 ">HOME TEAM</div>
+            <div {{-- class="bg-red-500 " --}}>
+                <img class="w-26 h-26 rounded-full" src="https://randomuser.me/api/portraits/men/64.jpg" />
+            </div>
             <div class="flex-col">
                 <div class="bg-yellow-500 mb-2">DIVISION NAME</div>
                 <div class="bg-purple-500 mb-2">VS</div>
                 <div class="bg-yellow-500 mt-4">TIME</div>
                 <div class="bg-purple-500">Venue</div>
             </div>
-            <div class="bg-green-500">AWAY TEAM</div>
+            <div>
+                <img class="w-46 h-46 rounded-full" src="https://randomuser.me/api/portraits/men/46.jpg" />
+            </div>
         </div>
     </x-section-container>
 

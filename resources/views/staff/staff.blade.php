@@ -40,7 +40,7 @@
                         {{-- <div class="bg-red-500 p-4">2 </div> --}}
                         <div class="player-container bg-white">
                             <a class="player hasImage no-underline hover:underline"
-                                href="/players/{{ $single_staff->slug }}">
+                                href="/staff/{{ $single_staff->slug }}">
                                 <div class="image-container overflow-hidden border-t-2 border-orange-500 ">
 
                                     <img class="transition  ease-in-out bg-gray-200 delay-150 hover:-translate-y-1 hover:scale-105 duration-[2500ms]"

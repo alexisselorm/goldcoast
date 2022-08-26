@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('News') }}
+            {{ __('Players') }}
         </h2>
     </x-slot>
 
@@ -14,6 +14,12 @@
                         <div class="flex justify-center min-h-screen overflow-hidden font-sans bg-gray-100 min-w-screen">
                             <div class="w-full lg:w-6/6">
                                 <div class="bg-white rounded shadow-md">
+                                    <a href="{{ route('create.player') }}">
+
+                                        <x-button>
+                                            CREATE NEW PLAYER
+                                        </x-button>
+                                    </a>
                                     <table class="w-full table-auto min-w-max">
                                         <thead>
                                             <tr class="text-sm leading-normal text-gray-600 uppercase bg-gray-200">

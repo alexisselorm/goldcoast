@@ -65,7 +65,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('news/{single_news}/edit', [AdminNewsController::class, 'edit'])->name('edit.news');
         Route::patch('news/{single_news}', [AdminNewsController::class, 'update']);
         Route::delete('news/{single_news}', [AdminNewsController::class, 'destroy'])->name('delete.news');
-        Route::get('news/create', [AdminNewsController::class, 'create']);
+        Route::get('news/create', [AdminNewsController::class, 'create'])->name('create.news');
         Route::post('news', [AdminNewsController::class, 'store'])->name('news.store');
 
         // Players
@@ -73,7 +73,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('players/{players}/edit', [AdminPlayerController::class, 'edit'])->name('edit.player');
         Route::patch('players/{player}', [AdminPlayerController::class, 'update']);
         Route::delete('players/{player}', [AdminPlayerController::class, 'destroy'])->name('delete.player');
-        Route::get('players/create', [AdminPlayerController::class, 'create']);
+        Route::get('players/create', [AdminPlayerController::class, 'create'])->name('create.player');
         Route::post('players', [AdminPlayerController::class, 'store'])->name('player.store');
 
         // Staff
@@ -81,7 +81,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('staff/{single_staff}/edit', [AdminStaffController::class, 'edit'])->name('edit.staff');
         Route::patch('staff/{single_staff}', [AdminStaffController::class, 'update']);
         Route::delete('staff/{single_staff}', [AdminStaffController::class, 'destroy'])->name('delete.staff');
-        Route::get('staff/create', [AdminStaffController::class, 'create']);
+        Route::get('staff/create', [AdminStaffController::class, 'create'])->name('create.staff');
         Route::post('staff', [AdminStaffController::class, 'store']);
 
         Route::post('images', [ImageController::class, 'store'])->name('admin.news.image.store');

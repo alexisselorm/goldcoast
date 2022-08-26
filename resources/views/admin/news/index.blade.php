@@ -14,6 +14,13 @@
                         <div class="flex justify-center min-h-screen overflow-hidden font-sans bg-gray-100 min-w-screen">
                             <div class="w-full lg:w-6/6">
                                 <div class="bg-white rounded shadow-md">
+                                    <div class="bg-white rounded shadow-md">
+                                        <a href="{{ route('create.news') }}">
+
+                                            <x-button>
+                                                WRITE A NEW BLOG POST
+                                            </x-button>
+                                        </a>
                                     <table class="w-full table-auto min-w-max">
                                         <thead>
                                             <tr class="text-sm leading-normal text-gray-600 uppercase bg-gray-200">

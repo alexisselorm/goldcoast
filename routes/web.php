@@ -63,15 +63,15 @@ Route::group(['middleware' => 'admin'], function () {
         // Route::resource('news', AdminNewsController::class)->except('show');
         Route::get('news', [AdminNewsController::class, 'index'])->name('admin.news');
         Route::get('news/{single_news}/edit', [AdminNewsController::class, 'edit'])->name('edit.news');
-        Route::patch('news/{single_news}', [AdminNewsController::class, 'update']);
+        Route::patch('news/{single_news}', [AdminNewsController::class, 'update'])->name('update.news');
         Route::delete('news/{single_news}', [AdminNewsController::class, 'destroy'])->name('delete.news');
         Route::get('news/create', [AdminNewsController::class, 'create'])->name('create.news');
         Route::post('news', [AdminNewsController::class, 'store'])->name('news.store');
 
         // Players
         Route::get('players', [AdminPlayerController::class, 'index'])->name('admin.players');
-        Route::get('players/{players}/edit', [AdminPlayerController::class, 'edit'])->name('edit.player');
-        Route::patch('players/{player}', [AdminPlayerController::class, 'update']);
+        Route::get('players/{player}/edit', [AdminPlayerController::class, 'edit'])->name('edit.player');
+        Route::patch('players/{player}', [AdminPlayerController::class, 'update'])->name('update.player');
         Route::delete('players/{player}', [AdminPlayerController::class, 'destroy'])->name('delete.player');
         Route::get('players/create', [AdminPlayerController::class, 'create'])->name('create.player');
         Route::post('players', [AdminPlayerController::class, 'store'])->name('player.store');
@@ -79,7 +79,7 @@ Route::group(['middleware' => 'admin'], function () {
         // Staff
         Route::get('staff', [AdminStaffController::class, 'index'])->name('admin.staff');
         Route::get('staff/{single_staff}/edit', [AdminStaffController::class, 'edit'])->name('edit.staff');
-        Route::patch('staff/{single_staff}', [AdminStaffController::class, 'update']);
+        Route::patch('staff/{single_staff}', [AdminStaffController::class, 'update'])->name('update.staff');
         Route::delete('staff/{single_staff}', [AdminStaffController::class, 'destroy'])->name('delete.staff');
         Route::get('staff/create', [AdminStaffController::class, 'create'])->name('create.staff');
         Route::post('staff', [AdminStaffController::class, 'store']);

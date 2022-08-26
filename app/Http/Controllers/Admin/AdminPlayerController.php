@@ -52,7 +52,7 @@ class AdminPlayerController extends Controller
         // dd(auth()->user());
 
         return view('admin.players.create', [
-            'positions' => Position::all(),
+            'positions' => Position::where('id', '<', 5)->with(['players'])->get(),
         ]);
     }
 
@@ -88,8 +88,10 @@ class AdminPlayerController extends Controller
 
     public function edit(Player $player)
     {
-        return view('admin.Player.edit', [
+        // dd($player);
+        return view('admin.players.edit', [
             'player' => $player,
+            'positions' => Position::where('id', '<', 5)->with(['players'])->get(),
         ]);
     }
 

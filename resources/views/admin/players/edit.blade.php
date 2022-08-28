@@ -61,6 +61,7 @@
                             <x-select class="block mt-1 w-full" id="position_id" name="position_id" required autofocus>
                                 @foreach ($positions as $position)
                                     <option value="{{ $position->id }}">{{ $position->name }}</option>
+                                    
                                 @endforeach
                             </x-select>
                         </div>

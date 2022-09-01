@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('slug');
+            $table->string('picture')->nullable();
+            $table->string('country');
+            $table->date('joining_date');
             $table->foreignId('position_id');
             $table->timestamps();
         });

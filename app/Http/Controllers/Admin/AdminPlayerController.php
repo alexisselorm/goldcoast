@@ -116,7 +116,7 @@ class AdminPlayerController extends Controller
 
         $player->update($attributes);
 
-        return back();
+        return redirect('admin/players')->with('success', 'Player edited');
     }
 
     public function destroy(Player $player)

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helpers\RequestHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 use App\Models\Player;
 use App\Models\Position;
 use Illuminate\Support\Facades\Storage;
@@ -28,7 +29,7 @@ class AdminPlayerController extends Controller
             'picture' => 'required|image',
             'weight' => 'required',
             'height' => 'required',
-            'country' => 'required',
+            'country_id' => 'required',
             'player_number' => 'required',
             'position_id' => 'required',
             'joining_date' => 'required',
@@ -53,6 +54,7 @@ class AdminPlayerController extends Controller
 
         return view('admin.players.create', [
             'positions' => Position::where('id', '<', 5)->with(['players'])->get(),
+            'countries' => Country::all(),
         ]);
     }
 
@@ -64,7 +66,7 @@ class AdminPlayerController extends Controller
             'picture',
             'weight',
             'height',
-            'country',
+            'country_id',
             'player_number',
             'position_id',
             'joining_date',

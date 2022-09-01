@@ -13,4 +13,9 @@ class Staff extends Model
     {
         return $this->belongsTo(Position::class);
     }
+
+    public function countr()
+    {
+        return $this->belongsTo(Country::class,'country_id','id');
+    }
 }

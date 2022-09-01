@@ -31,6 +31,8 @@ class PlayerController extends Controller
 
     public function show(Player $player)
     {
+        // $country= country($player->countr->code)->getFlag();
+        // echo $country;
         return view('players.player', [
             'player' => $player,
         ]);

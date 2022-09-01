@@ -84,7 +84,8 @@ class AdminStaffController extends Controller
     public function edit(Staff $single_staff)
     {
         return view('admin.staff.edit', [
-            'single_staff' => $single_staff,
+            'staff' => $single_staff,
+            'positions' => Position::where('id', '>', 4)->with(['players'])->get(),
         ]);
     }
 

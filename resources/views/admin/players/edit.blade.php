@@ -13,6 +13,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form action="{{ route('update.player', $player->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
+                        @method('PATCH')
                         {{-- First Name --}}
                         <div class="mb-4">
                             <x-label for="fname" :value="__('First Name')" />
@@ -55,12 +56,15 @@
                             <x-input id="player_number" class="block mt-1 w-full" type="number" name="player_number"
                                 value="{{ $player->player_number }}" required autofocus />
                         </div>
+                        {{-- {{ dd($player) }} --}}
                         {{-- Player Position --}}
                         <div class="mb-4">
                             <x-label for="position_id" :value="__('Position')" />
                             <x-select class="block mt-1 w-full" id="position_id" name="position_id" required autofocus>
                                 @foreach ($positions as $position)
-                                    <option value="{{ $position->id }}">{{ $position->name }}</option>
+                                    <option value="{{ $position->id }}"
+                                        @if ($position->id == $player->position_id) selected @endif>{{ $position->name }}
+                                    </option>
                                 @endforeach
                             </x-select>
                         </div>
@@ -76,11 +80,11 @@
                         <div class="mb-4">
                             <x-label for="picture" :value="__('Image')" />
                             <x-input id="picture" class="block mt-1 w-full" type="file" name="picture"
-                                value="{{ $player->picture }}" required autofocus />
+                                value="{{ $player->picture }}" autofocus />
                         </div>
 
                         <x-button class="">
-                            {{ __('ADD PLAYER') }}
+                            {{ __('EDIT PLAYER') }}
                         </x-button>
 
                     </form>

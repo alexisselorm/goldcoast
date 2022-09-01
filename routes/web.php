@@ -11,6 +11,7 @@ use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\StaffController;
 use App\Models\News;
 use Illuminate\Support\Facades\Route;
+use \Rinvex\Country\Country;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,12 @@ Route::post('/comments/store', [CommentController::class, 'store'])->name('comme
 Route::post('/reply', [CommentController::class, 'reply'])->name('reply');
 
 // Admin Stuff
+Route::get('/country', function () {
+
+    $country = country('GH');
+    dd($country);
+    // echo $country->getName();
+});
 
 Route::group(['middleware' => 'admin'], function () {
     Route::prefix('admin')->group(function () {

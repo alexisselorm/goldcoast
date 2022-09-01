@@ -2,11 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Comment;
 use App\Models\News;
-use App\Models\Player;
 use App\Models\User;
+use App\Models\Player;
+use App\Models\Comment;
 use Illuminate\Database\Seeder;
+use Database\Seeders\CountrySeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,6 +22,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(PositionSeeder::class);
         $this->call(CategorySeeder::class);
+        $this->call(CountrySeeder::class);
         User::factory(10)->create();
         News::factory(10)->create();
         Player::factory(20)->create();

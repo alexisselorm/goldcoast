@@ -46,9 +46,14 @@
                         </div>
                         {{-- Country of origin --}}
                         <div class="mb-4">
-                            <x-label for="country" :value="__('Country of Origin')" />
-                            <x-input id="country" class="block mt-1 w-full" type="text" name="country"
-                                value="{{ $player->country }}" required autofocus />
+                            <x-label for="country_id" :value="__('country')" />
+                            <x-select class="block mt-1 w-full" id="country_id" name="country_id" required autofocus>
+                                @foreach ($countries as $country)
+                                    <option value="{{ $country->id }}"
+                                        @if ($country->id == $player->country_id) selected @endif>{{ $country->name }}
+                                    </option>
+                                @endforeach
+                            </x-select>
                         </div>
                         {{-- Shirt Number --}}
                         <div class="mb-4">

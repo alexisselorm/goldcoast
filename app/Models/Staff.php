@@ -9,6 +9,8 @@ class Staff extends Model
 {
     use HasFactory;
 
+    public $guarded = ['id'];
+
     public function position()
     {
         return $this->belongsTo(Position::class);
@@ -16,6 +18,6 @@ class Staff extends Model
 
     public function countr()
     {
-        return $this->belongsTo(Country::class,'country_id','id');
+        return $this->belongsTo(Country::class, 'country_id', 'id');
     }
 }

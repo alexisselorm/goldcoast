@@ -91,7 +91,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::patch('staff/{single_staff}', [AdminStaffController::class, 'update'])->name('update.staff');
         Route::delete('staff/{single_staff}', [AdminStaffController::class, 'destroy'])->name('delete.staff');
         Route::get('staff/create', [AdminStaffController::class, 'create'])->name('create.staff');
-        Route::post('staff', [AdminStaffController::class, 'store']);
+        Route::post('staff', [AdminStaffController::class, 'store'])->name('store.staff');
 
         Route::get('position', [AdminPositionController::class, 'index'])->name('admin.position');
         Route::get('position/{position}/edit', [AdminPositionController::class, 'edit'])->name('edit.position');

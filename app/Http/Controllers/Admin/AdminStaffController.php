@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helpers\RequestHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 use App\Models\Position;
 use App\Models\Staff;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
 
 class AdminStaffController extends Controller
 {
@@ -27,12 +27,8 @@ class AdminStaffController extends Controller
             'fname' => 'required',
             'lname' => 'required',
             'picture' => 'required|image',
-            'weight' => 'required',
-            'height' => 'required',
-            'country' => 'required',
-            'player_number' => 'required',
+            'country_id' => 'required',
             'position_id' => 'required',
-            'joining_date' => 'required',
             'dob' => 'required',
         ];
     }
@@ -51,7 +47,11 @@ class AdminStaffController extends Controller
             redirect('/home');
         }
 
-        return view('admin.staff.create');
+        return view('admin.staff.create', [
+            'positions' => Position::where('id', '>', 4)->with(['players'])->get(),
+            'countries' => Country::all(),
+
+        ]);
     }
 
     public function store()
@@ -60,7 +60,7 @@ class AdminStaffController extends Controller
             'fname',
             'lname',
             'picture',
-            'country',
+            'country_id',
             'position_id',
             'joining_date',
             'dob',
@@ -78,34 +78,48 @@ class AdminStaffController extends Controller
 
         Staff::create($attributes);
 
-        return redirect('admin/players')->with('success', 'Player added');
+        return redirect('admin/staff')->with('success', 'Staff added');
     }
 
     public function edit(Staff $single_staff)
     {
         return view('admin.staff.edit', [
             'staff' => $single_staff,
-            'positions' => Position::where('id', '>', 4)->with(['players'])->get(),
+            'positions' => Position::where('id', '>', 4)->with(['staff'])->get(),
+            'countries' => Country::all(),
+
         ]);
     }
 
     public function update(Staff $single_staff)
     {
-        $attributes = request()->validate([
-            'title' => 'required',
-            'thumbnail' => 'image',
-            'slug' => ['required', Rule::unique('staff', 'slug')->ignore($single_staff->id)],
-            'excerpt' => 'required',
-            'body' => 'required',
+        // $attributes = request()->validate([
+        //     'title' => 'required',
+        //     'picture' => 'image',
+        //     'slug' => ['required', Rule::unique('staff', 'slug')->ignore($single_staff->id)],
+        //     'excerpt' => 'required',
+        //     'body' => 'required',
+        // ]);
+
+        $attributes = request()->only([
+            'fname',
+            'lname',
+            'picture',
+            'country_id',
+            'position_id',
+            'joining_date',
+            'dob',
         ]);
-        if (isset($attributes['thumbnail'])) {
-            $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+        if (isset($attributes['picture'])) {
+            $attributes['picture'] = request()->file('picture')->store('pictures');
         }
-        $attributes['slug'] = Str::slug($attributes['title']);
+
+        $attributes['slug'] = Str::slug($attributes['fname'] . ' ' . $attributes['lname']);
 
         $single_staff->update($attributes);
 
-        return back();
+        return redirect('admin/staff')->with('success', 'Staff added');
+
     }
 
     public function destroy(Staff $single_staff)

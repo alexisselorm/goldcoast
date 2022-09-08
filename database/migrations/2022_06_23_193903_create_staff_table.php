@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('picture')->nullable();
             $table->foreignId('country_id');
+            $table->date('dob');
             $table->date('joining_date');
             $table->foreignId('position_id');
             $table->timestamps();

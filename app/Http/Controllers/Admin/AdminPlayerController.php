@@ -94,6 +94,8 @@ class AdminPlayerController extends Controller
         return view('admin.players.edit', [
             'player' => $player,
             'positions' => Position::where('id', '<', 5)->with(['players'])->get(),
+            'countries' => Country::all(),
+
         ]);
     }
 

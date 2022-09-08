@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form action="{{ route('staff.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('store.staff') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-4">
                             <x-label for="fname" :value="__('First Name')" />
@@ -31,9 +31,12 @@
 
                         {{-- Country of origin --}}
                         <div class="mb-4">
-                            <x-label for="country" :value="__('Country of Origin')" />
-                            <x-input id="country" class="block mt-1 w-full" type="text" name="country"
-                                :value="old('country')" required autofocus />
+                            <x-label for="country_id" :value="__('Country of Origin')" />
+                            <x-select class="block mt-1 w-full" id="country_id" name="country_id" required autofocus>
+                                @foreach ($countries as $country)
+                                    <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                @endforeach
+                            </x-select>
                         </div>
 
                         {{-- Staff Position --}}

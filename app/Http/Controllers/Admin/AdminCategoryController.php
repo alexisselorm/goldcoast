@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Category;
-use Illuminate\Support\Str;
 use App\Helpers\RequestHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class AdminCategoryController extends Controller
 {
@@ -62,7 +62,7 @@ class AdminCategoryController extends Controller
     public function edit(Category $category)
     {
         return view('admin.category.edit', [
-            'categories' => $category,
+            'category' => $category,
         ]);
     }
 
@@ -71,11 +71,11 @@ class AdminCategoryController extends Controller
         $attributes = request()->validate([
             'name' => 'required']);
 
-        $attributes['slug'] = Str::slug($attributes['title']);
+        $attributes['slug'] = Str::slug($attributes['name']);
 
         $category->update($attributes);
 
-        return back();
+        return redirect('admin/category')->with('success', 'category edited');
     }
 
     public function destroy(Category $category)

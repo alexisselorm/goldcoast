@@ -18,7 +18,7 @@
                                 :value="old('name')" required autofocus />
                         </div>
                         <x-button type="submit" formnovalidate="formnovalidate">
-                            {{ __('CREATE POST') }}
+                            {{ __('CREATE POSITION') }}
                         </x-button>
 
                     </form>

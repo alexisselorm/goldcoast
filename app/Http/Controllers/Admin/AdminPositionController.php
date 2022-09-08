@@ -76,7 +76,7 @@ class AdminPositionController extends Controller
 
         $position->update($attributes);
 
-        return back();
+        return redirect('admin/position')->with('success', 'Position edited');
     }
 
     public function destroy(Position $position)

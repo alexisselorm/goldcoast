@@ -17,7 +17,7 @@
                                     <a href="{{ route('create.position') }}">
 
                                         <x-button>
-                                            CREATE NEW POSITION`
+                                            CREATE NEW POSITION
                                         </x-button>
                                     </a>
                                     <table class="w-full table-auto min-w-max">

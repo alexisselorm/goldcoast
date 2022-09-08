@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminNewsController;
 use App\Http\Controllers\Admin\AdminPlayerController;
 use App\Http\Controllers\Admin\AdminPositionController;
@@ -74,7 +75,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::patch('news/{single_news}', [AdminNewsController::class, 'update'])->name('update.news');
         Route::delete('news/{single_news}', [AdminNewsController::class, 'destroy'])->name('delete.news');
         Route::get('news/create', [AdminNewsController::class, 'create'])->name('create.news');
-        Route::post('news', [AdminNewsController::class, 'store'])->name('news.store');
+        Route::post('news', [AdminNewsController::class, 'store'])->name('store.news');
 
         // Players
         Route::get('players', [AdminPlayerController::class, 'index'])->name('admin.players');
@@ -82,7 +83,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::patch('players/{player}', [AdminPlayerController::class, 'update'])->name('update.player');
         Route::delete('players/{player}', [AdminPlayerController::class, 'destroy'])->name('delete.player');
         Route::get('players/create', [AdminPlayerController::class, 'create'])->name('create.player');
-        Route::post('players', [AdminPlayerController::class, 'store'])->name('player.store');
+        Route::post('players', [AdminPlayerController::class, 'store'])->name('store.player');
 
         // Staff
         Route::get('staff', [AdminStaffController::class, 'index'])->name('admin.staff');
@@ -97,7 +98,14 @@ Route::group(['middleware' => 'admin'], function () {
         Route::patch('position/{position}', [AdminPositionController::class, 'update'])->name('update.position');
         Route::delete('position/{position}', [AdminPositionController::class, 'destroy'])->name('delete.position');
         Route::get('position/create', [AdminPositionController::class, 'create'])->name('create.position');
-        Route::post('position', [AdminPositionController::class, 'store'])->name('position.store');
+        Route::post('position', [AdminPositionController::class, 'store'])->name('store.position');
+
+        Route::get('category', [AdminCategoryController::class, 'index'])->name('admin.category');
+        Route::get('category/{category}/edit', [AdminCategoryController::class, 'edit'])->name('edit.category');
+        Route::patch('category/{category}', [AdminCategoryController::class, 'update'])->name('update.category');
+        Route::delete('category/{category}', [AdminCategoryController::class, 'destroy'])->name('delete.category');
+        Route::get('category/create', [AdminCategoryController::class, 'create'])->name('create.category');
+        Route::post('category', [AdminCategoryController::class, 'store'])->name('store.category');
 
         Route::post('images', [ImageController::class, 'store'])->name('admin.news.image.store');
     });

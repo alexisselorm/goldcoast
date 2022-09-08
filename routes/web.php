@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminNewsController;
 use App\Http\Controllers\Admin\AdminPlayerController;
+use App\Http\Controllers\Admin\AdminPositionController;
 use App\Http\Controllers\Admin\AdminStaffController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\CommentController;
@@ -90,6 +91,13 @@ Route::group(['middleware' => 'admin'], function () {
         Route::delete('staff/{single_staff}', [AdminStaffController::class, 'destroy'])->name('delete.staff');
         Route::get('staff/create', [AdminStaffController::class, 'create'])->name('create.staff');
         Route::post('staff', [AdminStaffController::class, 'store']);
+
+        Route::get('position', [AdminPositionController::class, 'index'])->name('admin.position');
+        Route::get('position/{position}/edit', [AdminPositionController::class, 'edit'])->name('edit.position');
+        Route::patch('position/{position}', [AdminPositionController::class, 'update'])->name('update.position');
+        Route::delete('position/{position}', [AdminPositionController::class, 'destroy'])->name('delete.position');
+        Route::get('position/create', [AdminPositionController::class, 'create'])->name('create.position');
+        Route::post('position', [AdminPositionController::class, 'store'])->name('position.store');
 
         Route::post('images', [ImageController::class, 'store'])->name('admin.news.image.store');
     });

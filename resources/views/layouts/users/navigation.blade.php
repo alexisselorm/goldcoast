@@ -2,10 +2,10 @@
     <div class="fixed top-0 right-0 hidden px-6 py-4 sm:block">
         @auth
         @else
-            <a href="{{ route('login') }}" class="text-white text-m dark:text-gray-500 ">Log in</a>
+            <a href="{{ route('login') }}" class="text-white text-m dark:text-white ">Log in</a>
 
             @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="ml-4 text-white text-m dark:text-gray-500">Register</a>
+                <a href="{{ route('register') }}" class="ml-4 text-white text-m dark:text-white">Register</a>
             @endif
         @endauth
     </div>
@@ -54,7 +54,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                            class="flex items-center text-sm font-medium text-white hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                             <div>{{ Auth::user()?->name }}</div>
 
                             <div class="ml-1">
@@ -86,7 +86,7 @@
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
                 <button @click="open = ! open"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:text-white hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-white transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex"
                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

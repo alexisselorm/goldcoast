@@ -4,10 +4,10 @@
         <div class="fixed top-0 right-0 hidden px-6 py-4 sm:block">
             @auth
             @else
-                <a href="{{ route('login') }}" class="text-white text-m dark:text-gray-500 ">Log in</a>
+                <a href="{{ route('login') }}" class="text-white text-m dark:text-white ">Log in</a>
 
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-white text-m dark:text-gray-500">Register</a>
+                    <a href="{{ route('register') }}" class="ml-4 text-white text-m dark:text-white">Register</a>
                 @endif
             @endauth
         </div>
@@ -42,7 +42,7 @@
             </div>
             <div class="flex-col">
                 <div class="bg-yellow-500 mb-2">DIVISION NAME</div>
-                <div class="bg-purple-500 mb-2">VS</div>
+                <div class="bg-purple-500 text-xs mb-2">VS</div>
                 <div class="bg-yellow-500 mt-4">TIME</div>
                 <div class="bg-purple-500">Venue</div>
             </div>

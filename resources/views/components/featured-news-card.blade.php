@@ -12,11 +12,10 @@
             style="background:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 80%,#000 100%);">
         </div>
 
-        <div class="absolute z-10 text-white bottom-5 left-5">
+        <div class="absolute hover:underline z-10 text-white bottom-5 left-5">
             <span class="block text-[1em] leading-[1.5em] box-border">{{ $singlenews->category->name }}</span>
             <h2 class="text-[2em] block leading-[1.17em] font-[600] mt-0">{{ strtoupper($singlenews->title) }}</h2>
-            <span
-                class="mt-[5px] text-[0.78em] leading-[1.67em]">{{ $singlenews->created_at->diffForHumans() }}</span>
+            <span class="mt-[5px] text-[0.78em] leading-[1.67em]">{{ $singlenews->created_at->diffForHumans() }}</span>
         </div>
     </a>
     {{-- End of news --}}

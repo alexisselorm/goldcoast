@@ -11,11 +11,42 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form action="{{ route('store.fixture') }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        {{-- name --}}
+                        {{-- HOME --}}
                         <div class="mb-4">
-                            <x-label for="name" :value="__('Name')" />
-                            <x-input id="name" class="block mt-1 w-full" type="text" name="name"
-                                :value="old('name')" required autofocus />
+                            <x-label for="home" :value="__('Home')" />
+                            <x-input id="home" class="block mt-1 w-full" type="text" name="home"
+                                :value="old('home')" required autofocus />
+                        </div>
+
+                        {{-- AWAY --}}
+                        <div class="mb-4">
+                            <x-label for="away" :value="__('Away')" />
+                            <x-input id="away" class="block mt-1 w-full" type="text" name="away"
+                                :value="old('away')" required autofocus />
+                        </div>
+
+                         <div class="mb-4">
+                            <x-label for="competition" :value="__('HOME OR AWAY')" />
+                            <x-select class="block mt-1 w-full" id="competition" name="competition" required autofocus>
+                                        <option value=0>LEAGUE</option>
+                                        <option value=1>CUP</option>
+                                        <option value=2>FRIENDLY</option>
+                            </x-select>
+                        </div>
+
+                        {{-- DATE AND TIME --}}
+                        <div class="mb-4">
+                            <x-label for="gametime" :value="__('MATCH DAY')" />
+                            <x-input id="gametime" class="block mt-1 w-full" type="datetime-local" name="gametime"
+                                :value="old('gametime')" required autofocus />
+                        </div>
+
+                        <div class="mb-4">
+                            <x-label for="isHome" :value="__('HOME OR AWAY')" />
+                            <x-select class="block mt-1 w-full" id="isHome" name="isHome" required autofocus>
+                                        <option value=1>HOME</option>
+                                        <option value=0>AWAY</option>
+                            </x-select>
                         </div>
                         <x-button type="submit" formnovalidate="formnovalidate">
                             {{ __('CREATE FIXTURE') }}

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('competition');
             $table->string('away');
             $table->dateTime('gametime');
+            $table->string('slug');
             $table->boolean('isHome');
             $table->timestamps();
         });

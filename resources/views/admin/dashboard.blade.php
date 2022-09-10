@@ -16,7 +16,7 @@
                     {{-- Players --}}
                     <div
                         class="p-10 flex flex-col items-center text-center group md:lg:xl:border-r md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
-                        <a href="/admin/players"
+                        <a href="{{ route('admin.players') }}"
                             class="flex x flex-col items-center text-center group hover:bg-slate-50 cursor-pointer">
                             <span class="p-5 rounded-full bg-red-500 text-white shadow-lg shadow-red-200"><svg
                                     xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none"
@@ -34,7 +34,7 @@
                     {{-- News --}}
                     <div
                         class="p-10 flex flex-col items-center text-center group md:lg:xl:border-r md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
-                        <a href="/admin/news"
+                        <a href="{{ route('admin.news') }}"
                             class="flex x flex-col items-center text-center group hover:bg-slate-50 cursor-pointer">
                             <span class="p-5 rounded-full bg-orange-500 text-white shadow-lg shadow-orange-200"><svg
                                     xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none"
@@ -54,7 +54,7 @@
                     {{-- Staff --}}
                     <div
                         class="p-10 flex flex-col items-center text-center group md:lg:xl:border-r md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
-                        <a href="/admin/staff"
+                        <a href="{{ route('admin.staff') }}"
                             class="flex x flex-col items-center text-center group hover:bg-slate-50 cursor-pointer">
                             <span class="p-5 rounded-full bg-yellow-500 text-white shadow-lg shadow-yellow-200"><svg
                                     xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none"
@@ -72,7 +72,7 @@
                     {{-- Fixtures --}}
                     <div
                         class="p-10 flex flex-col items-center text-center group md:lg:xl:border-r md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
-                        <a href="/admin/fixtures"
+                        <a href="{{ route('admin.fixtures') }}"
                             class="flex x flex-col items-center text-center group hover:bg-slate-50 cursor-pointer">
                             <span class="p-5 rounded-full bg-lime-500 text-white shadow-lg shadow-lime-200"><svg
                                     xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none"
@@ -88,7 +88,7 @@
                     {{-- Category --}}
                     <div
                         class="p-10 flex flex-col items-center text-center group md:lg:xl:border-r md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
-                        <a href="/admin/category"
+                        <a href="{{ route('admin.categories') }}"
                             class="flex x flex-col items-center text-center group hover:bg-slate-50 cursor-pointer">
                             <span class="p-5 rounded-full bg-teal-500 text-white shadow-lg shadow-teal-200"><svg
                                     xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none"
@@ -104,7 +104,7 @@
                     </div>
                     <div
                         class="p-10 flex flex-col items-center text-center group md:lg:xl:border-r md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
-                        <a href="/admin/position"
+                        <a href="{{ route('admin.positions') }}"
                             class="flex x flex-col items-center text-center group hover:bg-slate-50 cursor-pointer">
                             <span class="p-5 rounded-full bg-indigo-500 text-white shadow-lg shadow-indigo-200"><svg
                                     xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none"

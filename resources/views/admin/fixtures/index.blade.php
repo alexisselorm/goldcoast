@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Positions') }}
+            {{ __('Fixtures') }}
         </h2>
     </x-slot>
 
@@ -14,26 +14,40 @@
                         <div class="flex justify-center min-h-screen overflow-hidden font-sans bg-gray-100 min-w-screen">
                             <div class="w-full lg:w-6/6">
                                 <div class="bg-white rounded shadow-md">
-                                    <a href="{{ route('create.position') }}">
+                                    <a href="{{ route('create.fixture') }}">
 
                                         <x-button>
-                                            CREATE NEW POSITION`
+                                            CREATE NEW FIXTURE
                                         </x-button>
                                     </a>
                                     <table class="w-full table-auto min-w-max">
                                         <thead>
                                             <tr class="text-sm leading-normal text-gray-600 uppercase bg-gray-200">
-                                                <th class="px-6 py-3 text-left">Name</th>
+                                                <th class="px-6 py-3 text-left">Home Team</th>
+                                                <th class="px-6 py-3 text-center">Away Team</th>
+                                                <th class="px-6 py-3 text-center">Date</th>
                                                 <th class="px-6 py-3 text-center">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody class="text-sm font-light text-gray-600">
-                                            {{-- positions --}}
-                                            @foreach ($positions as $position)
+                                            {{-- fixtures --}}
+                                            @foreach ($fixtures as $fixture)
                                                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                                                     <td class="px-6 py-3 text-left whitespace-nowrap">
                                                         <div class="flex items-center flex-grow">
-                                                            <span class="font-semibold">{{ $position->name }}</span>
+                                                            <span class="font-semibold">{{ $fixture->home }}</span>
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="px-6 py-3 text-left whitespace-nowrap">
+                                                        <div class="flex items-center flex-grow">
+                                                            <span class="font-semibold">{{ $fixture->away }}</span>
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="px-6 py-3 text-left whitespace-nowrap">
+                                                        <div class="flex items-center flex-grow">
+                                                            <span class="font-semibold">{{ $fixture->gametime }}</span>
                                                         </div>
                                                     </td>
 
@@ -41,7 +55,7 @@
                                                         <div class="flex justify-center item-center">
                                                             <div
                                                                 class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                                                                <a href="{{ route('edit.position', $position->id) }}">
+                                                                <a href="{{ route('edit.fixture', $fixture->id) }}">
                                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                                         fill="none" viewBox="0 0 24 24"
                                                                         stroke="currentColor">
@@ -54,7 +68,7 @@
                                                             <div
                                                                 class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                                                                 <form
-                                                                    action="{{ route('delete.position', $position->id) }}"
+                                                                    action="{{ route('delete.fixture', $fixture->id) }}"
                                                                     method="POST">
                                                                     @csrf
                                                                     @method('DELETE')

@@ -23,7 +23,7 @@ class PlayerFactory extends Factory
             'picture' => $this->faker->image(),
             'weight' => $this->faker->numberBetween(50, 120),
             'height' => $this->faker->numberBetween(150, 210),
-            'country' => 'Jupiter-topia',
+            'country_id' => $this->faker->numberBetween(1, 245),
             'player_number' => $this->faker->unique()->numberBetween(1, 100),
             'position_id' => $this->faker->numberBetween(1, 4),
             'joining_date' => $this->faker->dateTimeThisYear(),

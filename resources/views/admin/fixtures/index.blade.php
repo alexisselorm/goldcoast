@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Fixtures') }}
+            {{ __('FIXTURES') }}
         </h2>
     </x-slot>
 
@@ -23,36 +23,47 @@
                                     <table class="w-full table-auto min-w-max">
                                         <thead>
                                             <tr class="text-sm leading-normal text-gray-600 uppercase bg-gray-200">
-                                                <th class="px-6 py-3 text-left">Home Team</th>
-                                                <th class="px-6 py-3 text-center">Away Team</th>
-                                                <th class="px-6 py-3 text-center">Date</th>
+                                                <th class="px-6 py-3 text-left">OPPONENT</th>
+                                                <th class="px-6 py-3 text-left">GAME TIME</th>
                                                 <th class="px-6 py-3 text-center">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody class="text-sm font-light text-gray-600">
-                                            {{-- fixtures --}}
                                             @foreach ($fixtures as $fixture)
+
+                                                {{-- Fixtures --}}
+
                                                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                                                     <td class="px-6 py-3 text-left whitespace-nowrap">
                                                         <div class="flex items-center flex-grow">
-                                                            <span class="font-semibold">{{ $fixture->home }}</span>
+                                                            <span class="font-semibold">{{ $fixture->opponent->name }}</span>
                                                         </div>
                                                     </td>
+                                                    <td class="px-6 py-3 text-left">
+                                                        <div class="flex items-center">
 
-                                                    <td class="px-6 py-3 text-left whitespace-nowrap">
-                                                        <div class="flex items-center flex-grow">
-                                                            <span class="font-semibold">{{ $fixture->away }}</span>
+                                                            <span class="text-semibold">{{ $fixture->gametime }}</span>
                                                         </div>
                                                     </td>
-
-                                                    <td class="px-6 py-3 text-left whitespace-nowrap">
-                                                        <div class="flex items-center flex-grow">
-                                                            <span class="font-semibold">{{ $fixture->gametime }}</span>
-                                                        </div>
-                                                    </td>
-
                                                     <td class="px-6 py-3 text-center">
                                                         <div class="flex justify-center item-center">
+                                                            <div
+                                                                class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                                                                {{-- Preview news item --}}
+                                                                {{-- <a href="{{ route('show.fixture', $fixture->slug) }}"
+                                                                    target='_blank'> --}}
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        fill="none" viewBox="0 0 24 24"
+                                                                        stroke="currentColor">
+                                                                        <path stroke-linecap="round"
+                                                                            stroke-linejoin="round" stroke-width="2"
+                                                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                                        <path stroke-linecap="round"
+                                                                            stroke-linejoin="round" stroke-width="2"
+                                                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                                    </svg>
+                                                                </a>
+                                                            </div>
                                                             <div
                                                                 class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                                                                 <a href="{{ route('edit.fixture', $fixture->id) }}">
@@ -81,9 +92,9 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                {{-- @endforeach --}}
+                                            @endforeach
                                 </div>
-                                @endforeach
+
                             </div>
                             </tbody>
                             </table>

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Post News') }}
+            {{ __('CREATE A FIXTURE') }}
         </h2>
     </x-slot>
 
@@ -13,24 +13,19 @@
                         @csrf
                         {{-- HOME --}}
                         <div class="mb-4">
-                            <x-label for="home" :value="__('Home')" />
-                            <x-input id="home" class="block mt-1 w-full" type="text" name="home"
-                                :value="old('home')" required autofocus />
+                            <x-label for="opponent_id" :value="__('Opponent')" />
+                            <x-select class="block mt-1 w-full" id="opponent_id" name="opponent_id" required autofocus>
+                                @foreach ($opponents as $opponent)
+                                    <option value={{ $opponent->id }}>{{ $opponent->name }}</option>
+                                @endforeach
+                            </x-select>
                         </div>
-
-                        {{-- AWAY --}}
                         <div class="mb-4">
-                            <x-label for="away" :value="__('Away')" />
-                            <x-input id="away" class="block mt-1 w-full" type="text" name="away"
-                                :value="old('away')" required autofocus />
-                        </div>
-
-                         <div class="mb-4">
-                            <x-label for="competition" :value="__('HOME OR AWAY')" />
-                            <x-select class="block mt-1 w-full" id="competition" name="competition" required autofocus>
-                                        <option value=0>LEAGUE</option>
-                                        <option value=1>CUP</option>
-                                        <option value=2>FRIENDLY</option>
+                            <x-label for="competition_id" :value="__('Competition')" />
+                            <x-select class="block mt-1 w-full" id="competition_id" name="competition_id" required autofocus>
+                                @foreach ($competitions as $competition)
+                                    <option value={{ $competition->id }}>{{ $competition->name }}</option>
+                                @endforeach
                             </x-select>
                         </div>
 
@@ -44,8 +39,8 @@
                         <div class="mb-4">
                             <x-label for="isHome" :value="__('HOME OR AWAY')" />
                             <x-select class="block mt-1 w-full" id="isHome" name="isHome" required autofocus>
-                                        <option value=1>HOME</option>
-                                        <option value=0>AWAY</option>
+                                <option value=1>HOME</option>
+                                <option value=0>AWAY</option>
                             </x-select>
                         </div>
                         <x-button type="submit" formnovalidate="formnovalidate">

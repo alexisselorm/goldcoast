@@ -73,7 +73,7 @@ class AdminStaffController extends Controller
         // dd($attributes);
         $image = request()->file('picture')->store('players', 'public');
 
-        $attributes['slug'] = Str::slug($attributes['fname'] . ' ' . $attributes['lname']);
+        $attributes['slug'] = Str::slug($attributes['fname'].' '.$attributes['lname']);
         $attributes['picture'] = Storage::disk('public')->url($image);
 
         Staff::create($attributes);
@@ -114,12 +114,11 @@ class AdminStaffController extends Controller
             $attributes['picture'] = request()->file('picture')->store('pictures');
         }
 
-        $attributes['slug'] = Str::slug($attributes['fname'] . ' ' . $attributes['lname']);
+        $attributes['slug'] = Str::slug($attributes['fname'].' '.$attributes['lname']);
 
         $single_staff->update($attributes);
 
         return redirect('admin/staff')->with('success', 'Staff added');
-
     }
 
     public function destroy(Staff $single_staff)
@@ -128,5 +127,4 @@ class AdminStaffController extends Controller
 
         return back();
     }
-
 }

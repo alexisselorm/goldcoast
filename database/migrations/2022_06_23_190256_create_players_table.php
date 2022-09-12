@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('picture')->nullable();
             $table->unsignedSmallInteger('weight');
             $table->unsignedSmallInteger('height');
-            $table->foreignId('country_id')->constrained();
+            $table->foreignId('country_id');//->constrained();
             $table->tinyInteger('player_number')->unique();
             $table->foreignId('position_id');
             $table->date('joining_date');

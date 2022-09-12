@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\Player;
 use App\Models\Comment;
 use Illuminate\Database\Seeder;
-use Database\Seeders\CountrySeeder;
+use Database\Seeders\CompetitionSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,10 +22,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call(PositionSeeder::class);
         $this->call(CategorySeeder::class);
+        $this->call(CompetitionSeeder::class);
         $this->call(CountrySeeder::class);
         User::factory(10)->create();
         News::factory(10)->create();
         Player::factory(20)->create();
-        Comment::factory(10)->create();
     }
 }

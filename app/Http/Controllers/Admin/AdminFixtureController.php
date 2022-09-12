@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Fixture;
+use App\Models\Opponent;
+use App\Models\Competition;
+use Illuminate\Support\Str;
 use App\Helpers\RequestHelper;
 use App\Http\Controllers\Controller;
-use App\Models\Fixture;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 
 class AdminFixtureController extends Controller
 {
-
     private $helper;
 
     public function __construct(RequestHelper $helper)
@@ -23,9 +23,8 @@ class AdminFixtureController extends Controller
     public function validations()
     {
         return [
-            'home' => 'required',
-            'away' => 'required',
-            'competition' => 'required',
+            'opponent_id' => 'required',
+            'competition_id' => 'required',
             'gametime' => 'required',
             'isHome' => 'required',
         ];
@@ -36,7 +35,6 @@ class AdminFixtureController extends Controller
         return view('admin.fixtures.index', [
             'fixtures' => Fixture::all(),
         ]);
-
     }
 
     public function create()
@@ -45,24 +43,28 @@ class AdminFixtureController extends Controller
             redirect('/home');
         }
 
-        return view('admin.fixtures.create');
+        return view('admin.fixtures.create', [
+            'competitions' => Competition::all(),
+            'opponents' => Opponent::all(),
+        ]);
     }
 
     public function store()
     {
         $attributes = request()->only([
-            'home',
-            'away',
+            'opponent_id',
             'gametime',
-            'competition',
+            'competition_id',
             'isHome',
         ]);
+        $opponent =Opponent::find($attributes['opponent_id']);
+        // dd($opponent);
         $validate = Validator::make($attributes, $this->validations());
         if ($validate->fails()) {
             return $this->helper->failResponse($validate->errors()->first());
         }
 
-        $attributes['slug'] = Str::slug($attributes['home']);
+        $attributes['slug'] = Str::slug('goldcoastfc-vs-'.$opponent->name);
         Fixture::create($attributes);
 
         return redirect('admin/fixtures')->with('success', 'fixture added');

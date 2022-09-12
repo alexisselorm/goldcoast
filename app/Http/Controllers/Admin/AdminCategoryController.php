@@ -69,7 +69,7 @@ class AdminCategoryController extends Controller
     public function update(Category $category)
     {
         $attributes = request()->validate([
-            'name' => 'required']);
+            'name' => 'required', ]);
 
         $attributes['slug'] = Str::slug($attributes['name']);
 

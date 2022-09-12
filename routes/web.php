@@ -1,7 +1,9 @@
 <?php
 
 use App\Models\News;
-use \Rinvex\Country\Country;
+use App\Models\Fixture;
+use App\Models\Opponent;
+use App\Models\Competition;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\StaffController;
@@ -29,10 +31,18 @@ use App\Http\Controllers\Admin\AdminPositionController;
 
 Route::post('newsletter', NewsletterController::class);
 
+// Route::get('/testfixture', function(){
+//         $fixture = Fixture::with('opponent')->get();
+
+//         dd($fixture);
+
+// });
+
 Route::get('/', function () {
     return view('welcome', [
         'news' => News::with('author', 'category')->latest()->paginate(4),
         'extranews' => News::with('author', 'category')->orderBy('id', 'desc')->paginate(7),
+        'fixture' => Fixture::with('competition')->latest()->first(),
     ]
     );
 })->name('home');
@@ -41,7 +51,7 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'admin'])->name('dashboard');
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
 
 // Players
 Route::get('/players', [PlayerController::class, 'all'])->name('players');
@@ -61,7 +71,6 @@ Route::post('/reply', [CommentController::class, 'reply'])->name('reply');
 
 // Admin Stuff
 Route::get('/country', function () {
-
     $country = country('GH');
     dd($country);
     // echo $country->getName();

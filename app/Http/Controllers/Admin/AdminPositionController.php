@@ -70,7 +70,7 @@ class AdminPositionController extends Controller
     public function update(Position $position)
     {
         $attributes = request()->validate([
-            'name' => 'required']);
+            'name' => 'required', ]);
 
         $attributes['slug'] = Str::slug($attributes['name']);
 
@@ -85,5 +85,4 @@ class AdminPositionController extends Controller
 
         return back();
     }
-
 }

@@ -21,7 +21,7 @@ class AdminPlayerController extends Controller
     }
 
     // Helper Functions
-    public function validations()
+    public function validations(): array
     {
         return [
             'fname' => 'required',

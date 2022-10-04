@@ -25,8 +25,8 @@ class PlayerController extends Controller
     );
 
         // Sent as a json object(API)
-    // $positions = Position::with(['players'])->get();
-    // return response()->json($positions, 200);
+    //  $positions = Position::with(['players'])->get();
+    //  return response()->json($positions, 200);
     }
 
     public function show(Player $player)

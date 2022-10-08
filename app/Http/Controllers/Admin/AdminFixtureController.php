@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Fixture;
-use App\Models\Opponent;
-use App\Models\Competition;
-use Illuminate\Support\Str;
 use App\Helpers\RequestHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Competition;
+use App\Models\Fixture;
+use App\Models\Opponent;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class AdminFixtureController extends Controller
 {
@@ -57,7 +57,7 @@ class AdminFixtureController extends Controller
             'competition_id',
             'isHome',
         ]);
-        $opponent =Opponent::find($attributes['opponent_id']);
+        $opponent = Opponent::find($attributes['opponent_id']);
         // dd($opponent);
         $validate = Validator::make($attributes, $this->validations());
         if ($validate->fails()) {

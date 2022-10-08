@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\Opponent;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Fixture extends Model
 {
@@ -19,7 +18,6 @@ class Fixture extends Model
     {
         return $this->belongsTo(Opponent::class);
     }
-
 
     protected $guarded = ['id'];
 }

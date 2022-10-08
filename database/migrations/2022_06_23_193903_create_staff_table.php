@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('lname');
             $table->string('slug');
             $table->string('picture')->nullable();
-            $table->foreignId('country_id');//->constrained();
+            $table->foreignId('country_id'); //->constrained();
             $table->date('dob');
             $table->date('joining_date');
             $table->foreignId('position_id');

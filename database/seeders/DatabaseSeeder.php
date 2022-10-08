@@ -3,11 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\News;
-use App\Models\User;
 use App\Models\Player;
-use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Database\Seeder;
-use Database\Seeders\CompetitionSeeder;
 
 class DatabaseSeeder extends Seeder
 {

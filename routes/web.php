@@ -37,6 +37,10 @@ Route::post('newsletter', NewsletterController::class);
 
 // });
 
+
+Route::get('/fixtures' , function(){
+return view('fixtures.index');
+});
 Route::get('/', function () {
     return view('welcome', [
         'news' => News::with('author', 'category')->latest()->paginate(4),

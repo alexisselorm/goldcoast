@@ -69,4 +69,10 @@ class AdminFixtureController extends Controller
 
         return redirect('admin/fixtures')->with('success', 'fixture added');
     }
+
+    public function destroy(Fixture $fixture){
+        $fixture->deleteOrFail();
+
+        return back()->with('message','Fixture deleted successfully!');
+    }
 }

@@ -11,6 +11,10 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
+    {{-- Fontawesome --}}
+    <script src="https://use.fontawesome.com/b42fdb126d.js"></script>
+
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>

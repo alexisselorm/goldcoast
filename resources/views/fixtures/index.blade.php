@@ -7,6 +7,18 @@
             {{-- <span class="text-dark">Fixtures</span> --}}
             <div class="text-gray-600">
 
+                @php
+                    if ($latest_fixture->isHome) {
+                        $home = 'GoldCoast FC';
+                        $away = $latest_fixture->opponent->name;
+                        $stadium = 'Bravide Arena';
+                    } else {
+                        $home = $latest_fixture->opponent->name;
+                        $away = 'GoldCoast FC';
+                        $stadium = $latest_fixture->opponent->stadium;
+                    }
+
+                @endphp
                 NEXT MATCH
                 <hr>
             </div>
@@ -36,7 +48,7 @@
                             </svg>
 
 
-                            Bravida Arena
+                            {{ $stadium }}
 
                         </span>
                     </div>
@@ -47,10 +59,19 @@
                 </div> --}}
             </div>
             <div class="flex flex-wrap justify-between">
+                @php
+                    if ($latest_fixture->isHome) {
+                        $home = 'GoldCoast FC';
+                        $away = $latest_fixture->opponent->name;
+                    } else {
+                        $home = $latest_fixture->opponent->name;
+                        $away = 'GoldCoast FC';
+                    }
 
+                @endphp
                 <div class="my-12">
-                    <div> HomeTeam</div>
-                    <div class="mt-6"> {{ $latest_fixture->opponent->name }}</div>
+                    <div> {{ $home }}</div>
+                    <div class="mt-6">{{ $away }}</div>
                 </div>
 
                 <div>

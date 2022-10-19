@@ -39,7 +39,7 @@ Route::post('newsletter', NewsletterController::class);
 // });
 
 
-Route::get('/fixtures' , [FixtureController::class,'index']);
+Route::get('/fixtures' , [FixtureController::class,'index'])->name('fixtures');
 Route::get('/', function () {
     return view('welcome', [
         'news' => News::with('author', 'category')->latest()->paginate(4),

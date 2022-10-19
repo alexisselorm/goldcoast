@@ -1,21 +1,22 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminCategoryController;
-use App\Http\Controllers\Admin\AdminFixtureController;
-use App\Http\Controllers\Admin\AdminNewsController;
-use App\Http\Controllers\Admin\AdminPlayerController;
-use App\Http\Controllers\Admin\AdminPositionController;
-use App\Http\Controllers\Admin\AdminStaffController;
-use App\Http\Controllers\Admin\ImageController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\PlayerController;
-use App\Http\Controllers\StaffController;
-use App\Models\Fixture;
 use App\Models\News;
+use App\Models\Fixture;
 use App\Models\Opponent;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\StaffController;
+use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FixtureController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\AdminNewsController;
+use App\Http\Controllers\Admin\AdminStaffController;
+use App\Http\Controllers\Admin\AdminPlayerController;
+use App\Http\Controllers\Admin\AdminFixtureController;
+use App\Http\Controllers\Admin\AdminCategoryController;
+use App\Http\Controllers\Admin\AdminPositionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,9 +39,7 @@ Route::post('newsletter', NewsletterController::class);
 // });
 
 
-Route::get('/fixtures' , function(){
-return view('fixtures.index');
-});
+Route::get('/fixtures' , [FixtureController::class,'index']);
 Route::get('/', function () {
     return view('welcome', [
         'news' => News::with('author', 'category')->latest()->paginate(4),

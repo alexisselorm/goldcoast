@@ -2,6 +2,7 @@
 
 
     <x-section-container>
+        {{-- {{ dd($fixtures->skip(1)) }} --}}
         <div class="p-4  md:col-span-3 md:row-span-4">
             {{-- <span class="text-dark">Fixtures</span> --}}
             <div class="text-gray-600">
@@ -12,7 +13,7 @@
             <div class="flex flex-wrap justify-between mb-12">
                 <div>
 
-                    <div class="font-bold"> DIVISION 7</div>
+                    <div class="font-bold"> {{ $latest_fixture->competition->name }}</div>
                     <div>
 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -22,7 +23,7 @@
                         </svg>
 
                         <span class="text-sm text-gray-600">
-                            WED 19 October 2022 - 13:45
+                            {{ $latest_fixture->gametime }}
                         </span>
 
                         <span class="text-sm text-gray-600">
@@ -40,15 +41,16 @@
                         </span>
                     </div>
                 </div>
-                <div class="mr-4">
+                {{-- Television --}}
+                {{-- <div class="mr-4">
                     Cnal+
-                </div>
+                </div> --}}
             </div>
             <div class="flex flex-wrap justify-between">
 
                 <div class="my-12">
                     <div> HomeTeam</div>
-                    <div class="mt-6"> Away</div>
+                    <div class="mt-6"> {{ $latest_fixture->opponent->name }}</div>
                 </div>
 
                 <div>

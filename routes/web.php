@@ -44,7 +44,8 @@ Route::get('/', function () {
     return view('welcome', [
         'news' => News::with('author', 'category')->latest()->paginate(4),
         'extranews' => News::with('author', 'category')->orderBy('id', 'desc')->paginate(7),
-        'fixture' => Fixture::with('competition')->latest()->first(),
+        'fixture' => Fixture::with('competition')->orderBy('gametime','desc')->first(),
+
     ]
     );
 })->name('home');

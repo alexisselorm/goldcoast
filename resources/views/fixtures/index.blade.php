@@ -27,7 +27,7 @@
                 @endphp
                 <div class="p-6">
                     <div class="">
-                        {{Carbon\Carbon::parse($fixture->gametime)->format('d F')}} - {{ $stadium }}
+                        {{ Carbon\Carbon::parse($fixture->gametime)->format('d F') }} - {{ $stadium }}
                     </div>
                     <div>
                         {{ $home }}

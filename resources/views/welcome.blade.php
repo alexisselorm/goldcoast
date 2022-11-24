@@ -36,6 +36,7 @@
     {{-- Next Fixture --}}
     <x-section-container>
 
+
         @php
             if ($fixture->isHome) {
                 $home = 'GoldCoast FC';
@@ -49,23 +50,25 @@
 
         @endphp
         <span class="text-black">Fixtures</span>
-        <div class="p-4 bg-gray-800 md:col-span-3 flex justify-around items-center text-center align-center"
+        <div class="p-8 bg-gray-200 md:col-span-3 flex justify-around items-center text-center align-center"
             onclick="location.href='{{ route('fixtures') }}'">
             @unless(!$fixture)
                 {{-- HOME TEAM --}}
                 <div>
                     <img class="w-26 h-26 rounded-full"
-                        src="https://randomuser.me/api/portraits/men/{{ $fixture->opponent->id }}.jpg" />
+                        src="https://randomuser.me/api/portraits/men/{{ env('TEAM_ID') }}.jpg" />
                 </div>
                 <div>
                     {{ $home }}
                 </div>
 
                 <div class="flex-col">
-                    <div class="bg-yellow-500 mb-2">{{ $fixture->competition->name }}</div>
-                    <div class="bg-purple-500 text-xs mb-2">VS</div>
-                    <div class="bg-yellow-500 mt-4">{{ $fixture->gametime }}</div>
-                    <div class="bg-purple-500">{{ $stadium }}</div>
+                    <div class=" mb-2">{{ $fixture->competition->name }} logo here</div>
+                    <div class=" text-xs mb-2">VS</div>
+                    <div class=" mt-4">
+                        {{ Carbon\Carbon::parse($fixture->gametime)->format('l jS F Y, H:i') }}
+                    </div>
+                    <div class="">{{ $stadium }}</div>
                 </div>
                 {{-- AWAY MATCH --}}
 
@@ -88,9 +91,8 @@
     {{-- Another section . Maybe Shop?? --}}
     <x-section-container>
         <span class="text-black">SHOP</span>
-        <div class="p-4 bg-blue-500 md:col-span-3 items-center text-center justify-center">SHOP HERE. USE AN
-            EXTERNAL LINK
-            TO HANDLE POSTING AND BUYING</div>
+        <div class="p-8 bg-blue-500 md:col-span-3 items-center text-center justify-center">SHOP HERE. USE AN
+            EXTERNAL LINK TO HANDLE POSTING AND BUYING. MAYBE AN API?</div>
     </x-section-container>
 
     {{-- <x-section-container>

@@ -58,9 +58,16 @@ class AdminNewsController extends Controller
         if ($validate->fails()) {
             return $this->helper->failResponse($validate->errors()->first());
         }
+
+
+
         // $image =request()->file('thumbnail')->store('news', 'public');
         $image = request()->file('thumbnail');
         $filename = Str::random(12).$image->getClientOriginalName();
+        // Check if the news directory exists, if it does not, create it
+        if (!file_exists('storage/news/')) {
+            mkdir('storage/news/', 0777, true);
+        }
         $path = 'storage/news/'.$filename;
         Image::make($image->getRealPath())->resize(1100, 600)->save(public_path($path));
 

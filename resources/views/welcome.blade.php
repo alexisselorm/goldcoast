@@ -35,24 +35,23 @@
 
     {{-- Next Fixture --}}
     <x-section-container>
+        @unless(!$fixture)
+            @php
+                if ($fixture->isHome) {
+                    $home = 'GoldCoast FC';
+                    $away = $fixture->opponent->name;
+                    $stadium = 'Bravide Arena';
+                } else {
+                    $home = $fixture->opponent->name;
+                    $away = 'GoldCoast FC';
+                    $stadium = $fixture->opponent->stadium;
+                }
 
+            @endphp
+            <span class="text-black">Fixtures</span>
+            <div class="p-8 bg-gray-200 md:col-span-3 flex justify-around items-center text-center align-center"
+                onclick="location.href='{{ route('fixtures') }}'">
 
-        @php
-            if ($fixture->isHome) {
-                $home = 'GoldCoast FC';
-                $away = $fixture->opponent->name;
-                $stadium = 'Bravide Arena';
-            } else {
-                $home = $fixture->opponent->name;
-                $away = 'GoldCoast FC';
-                $stadium = $fixture->opponent->stadium;
-            }
-
-        @endphp
-        <span class="text-black">Fixtures</span>
-        <div class="p-8 bg-gray-200 md:col-span-3 flex justify-around items-center text-center align-center"
-            onclick="location.href='{{ route('fixtures') }}'">
-            @unless(!$fixture)
                 {{-- HOME TEAM --}}
                 <div>
                     <img class="w-26 h-26 rounded-full"

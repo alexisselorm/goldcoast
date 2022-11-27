@@ -34,7 +34,7 @@ class PlayedFixture extends Command
         $oldfixture = Fixture::with('competition')->orderBy('gametime','asc')->first();
         $playedfixture = new ModelsPlayedFixture();
         // dd(Carbon::parse($oldfixture->gametime)->diffForHumans());
-        // dd((Carbon::parse($oldfixture->gametime)->diffForHumans() == "2 hours ago"));
+        // dd((Carbon::parse($oldfixture->gametime)->diffForHumans() == "3 hours ago"));
 
         // If the current time is at least 3 hours over the olfixture's gametime, insert into playedfixtures and delete from old fixture
         if(Carbon::parse($oldfixture->gametime)->diffForHumans() == "3 hours ago"){

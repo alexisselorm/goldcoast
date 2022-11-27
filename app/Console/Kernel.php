@@ -16,6 +16,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+
+        // Run the command that checks our fixtures time and runs the specified logic in the commands
+        $schedule->command('play:fixture')->hourly();
     }
 
     /**

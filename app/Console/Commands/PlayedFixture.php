@@ -33,11 +33,11 @@ class PlayedFixture extends Command
         // Prepare the two models. Played Fixtures and Old fixtures
         $oldfixture = Fixture::with('competition')->orderBy('gametime','asc')->first();
         $playedfixture = new ModelsPlayedFixture();
-        // dd(Carbon::parse($oldfixture->gametime)->diffForHumans());
+        dd(Carbon::parse(now())->diffInHours(Carbon::parse($oldfixture->gametime),false) >= 3);
         // dd((Carbon::parse($oldfixture->gametime)->diffForHumans() == "3 hours ago"));
 
         // If the current time is at least 3 hours over the olfixture's gametime, insert into playedfixtures and delete from old fixture
-        if(Carbon::parse($oldfixture->gametime)->diffForHumans() == "3 hours ago"){
+        if(Carbon::parse(now())->diffInHours(Carbon::parse($oldfixture->gametime),false) >= 3){
             // Copy over all attributes of oldfixture into playedfixture
             $playedfixture->opponent_id = $oldfixture->opponent_id;
             $playedfixture->competition_id = $oldfixture->competition_id;

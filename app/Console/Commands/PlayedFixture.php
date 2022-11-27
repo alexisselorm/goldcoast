@@ -21,7 +21,7 @@ class PlayedFixture extends Command
      *
      * @var string
      */
-    protected $description = 'Checks if the current time is 2 hours later than the latest fixture\'s time. If it is, the match has been played';
+    protected $description = 'Checks if the current time is 3 hours later than the latest fixture\'s time. If it is, the match has been played';
 
     /**
      * Execute the console command.
@@ -36,7 +36,7 @@ class PlayedFixture extends Command
         // dd(Carbon::parse($oldfixture->gametime)->diffForHumans());
         // dd((Carbon::parse($oldfixture->gametime)->diffForHumans() == "2 hours ago"));
 
-        // If the current time is at least 2 hours over the olfixture's gametime, insert into playedfixtures and delete from old fixture
+        // If the current time is at least 3 hours over the olfixture's gametime, insert into playedfixtures and delete from old fixture
         if(Carbon::parse($oldfixture->gametime)->diffForHumans() == "3 hours ago"){
             // Copy over all attributes of oldfixture into playedfixture
             $playedfixture->opponent_id = $oldfixture->opponent_id;
@@ -49,7 +49,7 @@ class PlayedFixture extends Command
             // After the copy has been created in the played_fixtures tables, delete it from the current fixtures table.
             $oldfixture->delete();
             // Just for debugging: To confirm I got here!
-            echo "Successful";
+            echo "Successfully added matches to played fixtures. Please do well to enter the results and publish it";
         }
     }
 }

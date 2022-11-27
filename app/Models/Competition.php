@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\PlayedFixture;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Competition extends Model
 {
@@ -15,4 +16,10 @@ class Competition extends Model
     {
         return $this->hasMany(Fixture::class);
     }
+
+    public function playedfixture()
+    {
+        return $this->hasMany(PlayedFixture::class);
+    }
 }
+

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->dateTime('gametime');
             $table->string('slug');
             $table->boolean('isHome');
+            $table->boolean('isPublished');
             $table->tinyInteger('home_score')->nullable();
             $table->tinyInteger('away_score')->nullable();
             $table->timestamps();

@@ -18,7 +18,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
 
         // Run the command that checks our fixtures time and runs the specified logic in the commands
-        $schedule->command('play:fixture')->hourly();
+        $schedule->command('play:fixture')->hourly()->days([Schedule::SATURDAY,Schedule::SUNDAY]);
     }
 
     /**

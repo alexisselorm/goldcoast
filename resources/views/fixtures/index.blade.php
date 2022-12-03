@@ -2,12 +2,9 @@
 
 
     <x-section-container>
-        {{-- {{ dd($fixturesByMonth) }} --}}
         <x-next-fixture :latest_fixture="$latest_fixture" />
 
         @foreach ($fixturesByMonth as $monthlyfixtures)
-            {{-- {{ dd($monthlyfixtures) }} --}}
-
             <div class="px-4 font-semibold text-lg text-gray-500 md:col-span-3">
                 {{ strtoupper(Carbon\Carbon::parse($monthlyfixtures[0]->gametime)->format('F Y')) }}
                 <hr class="mt-3">

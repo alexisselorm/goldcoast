@@ -24,6 +24,10 @@
                         {{ __('News') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('admin.fixtures')" :active="request()->routeIs('admin.fixtures')">
+                        {{ __('Fixtures') }}
+                    </x-nav-link>
+
 
                     <x-nav-link :href="route('admin.staff')" :active="request()->routeIs('admin.staff')">
                         {{ __('Staff') }}

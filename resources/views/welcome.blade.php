@@ -35,7 +35,7 @@
 
     {{-- Next Fixture --}}
     <x-section-container>
-        @unless(!$fixture)
+        @unless (!$fixture)
             @php
                 if ($fixture->isHome) {
                     $home = 'GoldCoast FC';
@@ -49,12 +49,12 @@
 
             @endphp
             <span class="text-black">Fixtures</span>
-            <div class="p-8 bg-gray-200 md:col-span-3 flex justify-around items-center text-center align-center"
+            <div class="flex items-center justify-around p-8 text-center bg-gray-200 md:col-span-3 align-center"
                 onclick="location.href='{{ route('fixtures') }}'">
 
                 {{-- HOME TEAM --}}
                 <div>
-                    <img class="w-26 h-26 rounded-full"
+                    <img class="rounded-full w-26 h-26"
                         src="https://randomuser.me/api/portraits/men/{{ env('TEAM_ID') }}.jpg" />
                 </div>
                 <div>
@@ -62,9 +62,9 @@
                 </div>
 
                 <div class="flex-col">
-                    <div class=" mb-2">{{ $fixture->competition->name }} logo here</div>
-                    <div class=" text-xs mb-2">VS</div>
-                    <div class=" mt-4">
+                    <div class="mb-2 ">{{ $fixture->competition->name }} logo here</div>
+                    <div class="mb-2 text-xs ">VS</div>
+                    <div class="mt-4 ">
                         {{ Carbon\Carbon::parse($fixture->gametime)->format('l jS F Y, H:i') }}
                     </div>
                     <div class="">{{ $stadium }}</div>
@@ -76,7 +76,7 @@
                 </div>
 
                 <div>
-                    <img class="w-26 h-26 rounded-full"
+                    <img class="rounded-full w-26 h-26"
                         src="https://randomuser.me/api/portraits/men/{{ $fixture->opponent->id }}.jpg" />
                 </div>
             @else
@@ -90,7 +90,7 @@
     {{-- Another section . Maybe Shop?? --}}
     <x-section-container>
         <span class="text-black">SHOP</span>
-        <div class="p-8 bg-blue-500 md:col-span-3 items-center text-center justify-center">SHOP HERE. USE AN
+        <div class="items-center justify-center p-8 text-center bg-blue-500 md:col-span-3">SHOP HERE. USE AN
             EXTERNAL LINK TO HANDLE POSTING AND BUYING. MAYBE AN API?</div>
     </x-section-container>
 
@@ -110,5 +110,11 @@
     {{-- Newsletter --}}
     <x-newsletter />
     {{-- End of Newsletter --}}
-
+    {{-- Alpine  Toast --}}
+    @if (session('success'))
+        <div x-data="{ showToast: true, message: '{{ session('success') }}' }">
+            @include('components.toast')
+        </div>
+    @endif
+    {{-- End Alpine Toast --}}
 </x-guest-layout>

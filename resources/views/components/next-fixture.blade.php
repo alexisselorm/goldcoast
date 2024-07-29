@@ -1,10 +1,10 @@
 @props(['latest_fixture'])
-<div class="p-4  md:col-span-3 md:row-span-4">
+<div class="p-4 md:col-span-3 md:row-span-4">
     {{-- <span class="text-dark">Fixtures</span> --}}
     <div class="text-gray-600">
 
         @php
-            if ($latest_fixture != 0) {
+            if ($latest_fixture) {
                 if ($latest_fixture->isHome) {
                     $home = 'GoldCoast FC';
                     $away = $latest_fixture->opponent->name;
@@ -21,7 +21,7 @@
     </div>
     <div class="flex flex-wrap justify-between mb-12">
         <div>
-            @if ($latest_fixture != 0)
+            @if ($latest_fixture)
                 <div class="font-bold"> {{ $latest_fixture->competition->name }}</div>
                 <div>
                     <span>
@@ -67,15 +67,15 @@
 
 
             </div>
-            <div class="p-2 m-2 "> <span class="bg-gray-100 p-1 w-6 h-6 rounded-full">40</span> <span
+            <div class="p-2 m-2 "> <span class="w-6 h-6 p-1 bg-gray-100 rounded-full">40</span> <span
                     class="mx-2">Days</span></div>
-            <div class="p-2 m-2"><span class="bg-gray-100 p-1 w-6 h-6 rounded-full">40</span> <span
+            <div class="p-2 m-2"><span class="w-6 h-6 p-1 bg-gray-100 rounded-full">40</span> <span
                     class="mx-2">Hours</span>
             </div>
-            <div class="p-2 m-2"><span class="rounded-full bg-gray-100 p-1 w-6 h-6">30</span> <span
+            <div class="p-2 m-2"><span class="w-6 h-6 p-1 bg-gray-100 rounded-full">30</span> <span
                     class="mx-2">Min</span>
             </div>
-            <div class="p-2 m-2"><span class="bg-gray-100 p-1 w-6 h-6 rounded-full">19</span> <span
+            <div class="p-2 m-2"><span class="w-6 h-6 p-1 bg-gray-100 rounded-full">19</span> <span
                     class="mx-2">Sec</span>
             </div>
         </div>

@@ -49,7 +49,7 @@
 
             @endphp
             <span class="text-black">Fixtures</span>
-            <div class="flex items-center justify-around p-8 text-center bg-gray-200 md:col-span-3 align-center"
+            <div class="flex items-center justify-around p-8 text-center bg-gray-200 cursor-pointer md:col-span-3 align-center"
                 onclick="location.href='{{ route('fixtures') }}'">
 
                 {{-- HOME TEAM --}}
